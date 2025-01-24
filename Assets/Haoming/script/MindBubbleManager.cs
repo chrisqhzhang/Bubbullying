@@ -2,25 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MindBubbleManager : MonoBehaviour
+public class MindBubbleManager : Singleton<MindBubbleManager>
 {
-    public static MindBubbleManager Instance;
-
     private Queue<MindBubble> mindBubbles = new Queue<MindBubble>();
-
-    private void Awake()
+    
+    public bool IsCaptured(GameObject go)
     {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
+        return false;
+        // TODO: return if a go is captured
     }
-
-    public void CaptureData(string id, string content)
+    
+    public void CaptureData(GameObject go)
     {
-        // Store the captured data
-        mindBubbles.Enqueue(new MindBubble(id, content));
-        Debug.Log($"Captured: {content} (ID: {id})");
+        // mindBubbles.Enqueue(new MindBubble(id, content));
 
-        // Additional logic: Save data, display it in a bubble, etc.
+        // mark as captured
     }
 
     public Queue<MindBubble> GetCapturedData()

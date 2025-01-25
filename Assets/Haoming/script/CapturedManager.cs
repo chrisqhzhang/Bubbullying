@@ -31,9 +31,10 @@ public class CapturedManager : Singleton<CapturedManager>
     private AudioSource audioSource;
 
     private bool isCaptureRunning;
-    private GameObject currentCapturedObject;
     
-    public delegate void ButtonEventHandler(GameObject go = null);
+    private CapturableObject _currentCapturedObject;
+    
+    public delegate void ButtonEventHandler(CapturableObject capturedObject = null);
     
     public ButtonEventHandler OnClickOnCapturedObject;
     public ButtonEventHandler OnClickOnNotCapturedObject;
@@ -96,7 +97,7 @@ public class CapturedManager : Singleton<CapturedManager>
     {
         if (!Input.GetMouseButtonUp(0)) return;
         
-        // if (EventSystem.current.IsPointerOverGameObject()) return; // ignore UI
+        if (EventSystem.current.IsPointerOverGameObject()) return; // ignore UI
         
         if (Physics2D.Raycast(
                 mainCamera.ScreenToWorldPoint(Input.mousePosition), 
@@ -109,87 +110,89 @@ public class CapturedManager : Singleton<CapturedManager>
 
     public void HandleClickOnCapture()
     {
-        if (currentCapturedObject == null) return;
-        if (MindBubbleManager.Instance.IsCaptured(currentCapturedObject)) return;
+        if (_currentCapturedObject == null) return;
+        if (MindBubbleManager.Instance.IsCaptured(_currentCapturedObject.GetId())) return;
 
         isCaptureRunning = true;
         OnClickOnCaptureButton?.Invoke(null);
     }
  
-    void ShowCapturedButton(GameObject go)
+    void ShowCapturedButton(CapturableObject capturedObject)
     {
         buttonImage.sprite = defaultImage;
         
         // capturedButton.transform.position = mainCamera.ScreenToWorldPoint(Input.mousePosition) + capturedButtonOffset;
         
-        Vector3 loc = go.transform.GetChild(0).position;
-        Vector3 scale = go.transform.GetChild(0).lossyScale;
+        Vector3 loc = capturedObject.gameObject.transform.GetChild(0).position;
+        Vector3 scale = capturedObject.gameObject.transform.GetChild(0).lossyScale;
 
         capturedButton.transform.position = loc + scale / 2;
         
         capturedButton.SetActive(true);
     }
     
-    void ShowCapturedDoneButton(GameObject go)
+    void ShowCapturedDoneButton(CapturableObject capturedObject)
     {
         buttonImage.sprite = clickedImage;
         
         // capturedButton.transform.position = mainCamera.ScreenToWorldPoint(Input.mousePosition) + capturedButtonOffset;
 
-        Vector3 loc = go.transform.GetChild(0).position;
-        Vector3 scale = go.transform.GetChild(0).lossyScale;
+        Vector3 loc = capturedObject.gameObject.transform.GetChild(0).position;
+        Vector3 scale = capturedObject.gameObject.transform.GetChild(0).lossyScale;
 
         capturedButton.transform.position = loc +  scale / 2;
         
         capturedButton.SetActive(true);
     }
     
-    void HideCapturedButton(GameObject go = null)
+    void HideCapturedButton(CapturableObject capturedObject = null)
     {
         capturedButton.SetActive(false);
     }
 
-    void UpdateCurrentClickedObject(GameObject go)
+    void UpdateCurrentClickedObject(CapturableObject capturedObject)
     {
-        currentCapturedObject = go;
-        if (go)
+        _currentCapturedObject = capturedObject;
+        if (capturedObject)
         {
-            capturedObjectRenderer = go.transform.GetChild(0).GetComponent<Renderer>();
+            capturedObjectRenderer = capturedObject.gameObject.transform.GetChild(0).GetComponent<Renderer>();
             capturedOriginalMaterial = capturedObjectRenderer.material;
         }
     }
        
-    private void TriggerCapturedSound(GameObject go = null)
+    private void TriggerCapturedSound(CapturableObject capturedObject = null)
     {
         audioSource.Play();
     }
     
-    private void HandleButtonAfterCapture(GameObject go = null)
+    private void HandleButtonAfterCapture(CapturableObject capturedObject = null)
     {
         // buttonImage.sprite = clickedImage;
         capturedButton.SetActive(false);
         buttonImage.sprite = defaultImage;
     }
     
-    void HandleCaptureData(GameObject go = null)
+    void HandleCaptureData(CapturableObject capturedObject = null)
     {
-        MindBubbleManager.Instance.CaptureData(currentCapturedObject);
+        MindBubbleManager.Instance.CaptureData(_currentCapturedObject.GetBubbleData());
     }
 
-    public void TriggerFlashAndFly(GameObject go = null)
+    public void TriggerFlashAndFly(CapturableObject capturedObject = null)
     {
-        GameObject capturedObject = Instantiate(currentCapturedObject, mainCamera.ScreenToWorldPoint(Input.mousePosition), Quaternion.identity);
+        GameObject newcapturedObject = Instantiate(_currentCapturedObject.gameObject,
+                                        mainCamera.ScreenToWorldPoint(Input.mousePosition), 
+                                                Quaternion.identity);
         
-        LeanTween.scale(capturedObject, new Vector3(scaleReduction, scaleReduction, scaleReduction), flyDuration)
+        LeanTween.scale(newcapturedObject, new Vector3(scaleReduction, scaleReduction, scaleReduction), flyDuration)
             .setEase(LeanTweenType.easeInQuad);
-        LeanTween.move(capturedObject, targetCorner.position, flyDuration)
+        LeanTween.move(newcapturedObject, targetCorner.position, flyDuration)
             .setEase(LeanTweenType.easeInOutExpo);
      
         StartCoroutine(FlashCoroutine());
         
         LeanTween.delayedCall(flyDuration, () =>
         {
-            Destroy(capturedObject);
+            Destroy(newcapturedObject);
             isCaptureRunning = false;
             UpdateCurrentClickedObject(null);
         });
@@ -197,24 +200,17 @@ public class CapturedManager : Singleton<CapturedManager>
     
     private IEnumerator FlashCoroutine()
     {
+        GameObject capturedObjectChildren = _currentCapturedObject.transform.GetChild(0).GetChild(0).gameObject;
+        capturedObjectChildren.SetActive(false);
         capturedObjectRenderer.material = flashMaterial;
         yield return new WaitForSeconds(flyDuration);
+        capturedObjectChildren.SetActive(true);
         capturedObjectRenderer.material = capturedOriginalMaterial;
     }
     
     public bool IsCaptureRunning()
     {
         return isCaptureRunning;
-    }
-    
-    public string GetObjectId()
-    {
-        return "001";
-    }
-    
-    public string GetContent()
-    {
-        return "test";
     }
 
 }

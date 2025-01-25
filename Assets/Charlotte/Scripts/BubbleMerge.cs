@@ -12,9 +12,6 @@ public class BubbleMerge : MonoBehaviour
     private float offsetX, offsetY;
     private static bool mouseReleased;
 
-    //private int size;
-    //private string message;
-
     //private void Start()
     //{
     //    Button btn = mindButton.GetComponent<Button>();
@@ -46,8 +43,6 @@ public class BubbleMerge : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        //BubbleMerge otherBubble = collision.gameObject.GetComponent<BubbleMerge>();
-
         string thisGameObjectName;
         string collisionGameObjectName;
 
@@ -61,11 +56,6 @@ public class BubbleMerge : MonoBehaviour
             mouseReleased = false;
             Destroy(gameObject);
             Destroy(collision.gameObject);
-
-            //GameObject newBubble = new GameObject("MergedBubble");
-            //BubbleMerge newBubbleScript = newBubble.AddComponent<BubbleMerge>();
-            //newBubbleScript.size = 2;
-            //newBubbleScript.message = "testNewMessage";
         }
         else if (mouseReleased && thisGameObjectName == "MidBubble")
         {

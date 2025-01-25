@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -9,8 +10,21 @@ public class MindBubble : MonoBehaviour
     private float offsetX, offsetY;
     private static bool mouseReleased;
     
-    private BubbleData bubbleData;
+    [SerializeField] private float repulsionForce = 5f;
     
+    private BubbleData bubbleData;
+
+    private void Awake()
+    {
+        Vector3 startPosition = MindBubbleManager.Instance.startTransform.position;
+        
+        Vector3 newPosition = new Vector3(startPosition.x + MindBubbleManager.Instance.GetBubbleCount() % 10,
+            startPosition.y + MindBubbleManager.Instance.GetBubbleCount() / 10f,
+            startPosition.z);
+     
+        transform.position = newPosition;
+    }
+
     public void ConstructMindBubble(BubbleData data)
     {
         bubbleData = data;
@@ -50,4 +64,24 @@ public class MindBubble : MonoBehaviour
     {
         if (!mouseReleased) return;
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1)) return;
+        
+        Vector2 direction = (transform.position - other.transform.position).normalized;
+
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.AddForce(direction * repulsionForce, ForceMode2D.Impulse);
+        }
+
+        Rigidbody2D otherRb = other.gameObject.GetComponent<Rigidbody2D>();
+        if (otherRb != null)
+        {
+            otherRb.AddForce(-direction * repulsionForce, ForceMode2D.Impulse);
+        }
+    }
+    
 }

@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Numerics;
 
 public class MindBubbleManager : Singleton<MindBubbleManager>
 {
     private Queue<MindBubble> mindBubbles = new Queue<MindBubble>();
     private HashSet<int> capturedIds = new HashSet<int>();
-
+    
     [SerializeField] private GameObject mainPage;
     [SerializeField] private GameObject bubblePage;
+    
+    public Transform startTransform;
     
     public bool IsCaptured(int Id)
     {
@@ -40,5 +43,10 @@ public class MindBubbleManager : Singleton<MindBubbleManager>
     {
         bubblePage.SetActive(false);
         mainPage.SetActive(true);
+    }
+
+    public int GetBubbleCount()
+    {
+        return capturedIds.Count;
     }
 }

@@ -12,6 +12,8 @@ public class BubbleMerge : MonoBehaviour
     private float offsetX, offsetY;
     private static bool mouseReleased;
 
+    public MergeSystem ms;
+
     //private void Start()
     //{
     //    Button btn = mindButton.GetComponent<Button>();
@@ -41,7 +43,7 @@ public class BubbleMerge : MonoBehaviour
         mouseReleased = true;
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    public void OnTriggerStay2D(Collider2D collision)
     {
         string thisGameObjectName;
         string collisionGameObjectName;
@@ -49,18 +51,16 @@ public class BubbleMerge : MonoBehaviour
         thisGameObjectName = gameObject.name.Substring(0, name.IndexOf("_"));
         collisionGameObjectName = collision.gameObject.name.Substring(0, name.IndexOf("_"));
 
-        if (mouseReleased && thisGameObjectName == "SmallBubble" && thisGameObjectName == collisionGameObjectName)
+        if (ms.isMergable && mouseReleased && thisGameObjectName == "SmallBubble" && thisGameObjectName == collisionGameObjectName)
         {
             Instantiate(Resources.Load("MidBubble_Object"), transform.position, Quaternion.identity);
-            //gameObject.transform.localScale = new Vector3(2f, 2f, 1); 
             mouseReleased = false;
             Destroy(gameObject);
             Destroy(collision.gameObject);
         }
-        else if (mouseReleased && thisGameObjectName == "MidBubble")
+        else if (ms.isMergable && mouseReleased && thisGameObjectName == "MidBubble")
         {
             Instantiate(Resources.Load("BigBubble_Object"), transform.position, Quaternion.identity);
-            //gameObject.transform.localScale = new Vector3(2f, 2f, 1);
             mouseReleased = false;
             Destroy(gameObject);
             Destroy(collision.gameObject);

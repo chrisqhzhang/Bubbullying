@@ -12,7 +12,7 @@ public class MindBubbleManager : Singleton<MindBubbleManager>
     [SerializeField] private GameObject bubblePage;
     
     public Transform startTransform;
-    
+     
     public bool IsCaptured(int Id)
     {
         return capturedIds.Contains(Id);

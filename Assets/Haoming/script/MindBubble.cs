@@ -10,19 +10,36 @@ public class MindBubble : MonoBehaviour
     private float offsetX, offsetY;
     private static bool mouseReleased;
     
-    [SerializeField] private float repulsionForce = 5f;
+    private float bubbleRadius;  
+    private Vector2 screenBounds;
+    private Vector2 positionTemp;
+    [SerializeField] private float repulsionForce = 0.1f;
+    [SerializeField] private float displayOffsetX = 1f;
+    [SerializeField] private float displayOffsetY = 10f;
     
     private BubbleData bubbleData;
 
     private void Awake()
     {
-        Vector3 startPosition = MindBubbleManager.Instance.startTransform.position;
+        Vector2 startPosition = MindBubbleManager.Instance.startTransform.position;
         
-        Vector3 newPosition = new Vector3(startPosition.x + MindBubbleManager.Instance.GetBubbleCount() % 10,
-            startPosition.y + MindBubbleManager.Instance.GetBubbleCount() / 10f,
-            startPosition.z);
+        Vector2 newPosition = new Vector3(startPosition.x + displayOffsetX * MindBubbleManager.Instance.GetBubbleCount() % 10,
+            startPosition.y - displayOffsetY * (MindBubbleManager.Instance.GetBubbleCount() / 10));
      
         transform.position = newPosition;
+        
+        Camera mainCamera = Camera.main;
+        screenBounds = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, mainCamera.transform.position.z));
+        
+        CircleCollider2D collider = GetComponent<CircleCollider2D>();
+        bubbleRadius = collider.bounds.extents.x;
+    }
+
+    void Update()
+    {
+        positionTemp.x = Mathf.Clamp(transform.position.x, -screenBounds.x + bubbleRadius, screenBounds.x - bubbleRadius);
+        positionTemp.y = Mathf.Clamp(transform.position.y, -screenBounds.y + bubbleRadius, screenBounds.y - bubbleRadius);
+        transform.position = positionTemp;
     }
 
     public void ConstructMindBubble(BubbleData data)
@@ -52,7 +69,8 @@ public class MindBubble : MonoBehaviour
     private void OnMouseDrag()
     {
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = new Vector2(mousePosition.x - offsetX, mousePosition.y - offsetY);
+        Vector2 pos = new Vector2(mousePosition.x - offsetX, mousePosition.y - offsetY);
+        transform.position = pos;
     }
 
     private void OnMouseUp()
@@ -76,12 +94,12 @@ public class MindBubble : MonoBehaviour
         {
             rb.AddForce(direction * repulsionForce, ForceMode2D.Impulse);
         }
-
-        Rigidbody2D otherRb = other.gameObject.GetComponent<Rigidbody2D>();
-        if (otherRb != null)
-        {
-            otherRb.AddForce(-direction * repulsionForce, ForceMode2D.Impulse);
-        }
+        //
+        // Rigidbody2D otherRb = other.gameObject.GetComponent<Rigidbody2D>();
+        // if (otherRb != null)
+        // {
+        //     otherRb.AddForce(direction * repulsionForce, ForceMode2D.Impulse);
+        // }
     }
     
 }

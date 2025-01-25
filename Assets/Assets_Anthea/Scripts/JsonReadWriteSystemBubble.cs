@@ -10,7 +10,7 @@ public class JsonReadWriteSystemBubble : MonoBehaviour
     public TMP_InputField posterInputField;
     public TMP_InputField timeInputField;
 
-    private BubbleData bubbleData;
+    private BubbleAppData bubbleAppData;
 
     void Start()
     {
@@ -28,12 +28,12 @@ public class JsonReadWriteSystemBubble : MonoBehaviour
         }
 
         string json = File.ReadAllText(jsonPath);
-        bubbleData = JsonUtility.FromJson<BubbleData>(json);
+        bubbleAppData = JsonUtility.FromJson<BubbleAppData>(json);
 
         // 测试显示第一个帖子的内容
-        if (bubbleData.posts.Count > 0)
+        if (bubbleAppData.posts.Count > 0)
         {
-            DisplayPost(bubbleData.posts[0]);
+            DisplayPost(bubbleAppData.posts[0]);
         }
     }
 

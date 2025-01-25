@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 
 [System.Serializable]
-public class BubbleData
+public class BubbleAppData 
 {
     public List<PostData> posts;
     public List<CommentData> comments;

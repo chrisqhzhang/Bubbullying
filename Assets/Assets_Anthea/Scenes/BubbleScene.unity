@@ -330,10 +330,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3974045822147611494, guid: 96ad120beb8d3b640a9f123981e6ef9f, type: 3}
+      propertyPath: m_GlobalFontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c4ca360419159264681ec0f46c325767, type: 2}
+    - target: {fileID: 4632907170703245775, guid: 96ad120beb8d3b640a9f123981e6ef9f, type: 3}
+      propertyPath: m_GlobalFontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c4ca360419159264681ec0f46c325767, type: 2}
+    - target: {fileID: 4802918369258293929, guid: 96ad120beb8d3b640a9f123981e6ef9f, type: 3}
+      propertyPath: m_CaretWidth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4802918369258293929, guid: 96ad120beb8d3b640a9f123981e6ef9f, type: 3}
+      propertyPath: m_GlobalFontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c4ca360419159264681ec0f46c325767, type: 2}
     - target: {fileID: 5449576968073156793, guid: 96ad120beb8d3b640a9f123981e6ef9f, type: 3}
       propertyPath: m_Name
       value: PostPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 7497379836351084382, guid: 96ad120beb8d3b640a9f123981e6ef9f, type: 3}
+      propertyPath: m_GlobalFontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c4ca360419159264681ec0f46c325767, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

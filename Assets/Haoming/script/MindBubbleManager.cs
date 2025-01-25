@@ -56,6 +56,7 @@ public class MindBubbleManager : Singleton<MindBubbleManager>
     {
         bubblePage.SetActive(false);
         mainPage.SetActive(true);
+        audioSource.Stop();
     }
 
     public int GetBubbleCount()

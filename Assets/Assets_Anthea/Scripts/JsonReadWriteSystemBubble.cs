@@ -10,11 +10,19 @@ public class JsonReadWriteSystemBubble : MonoBehaviour
     public TMP_InputField posterInputField;
     public TMP_InputField timeInputField;
 
+    public GameObject postPrefab;
+    public Transform postsContainer;
+
+    public GameObject detailPageCanvas;
+
     private BubbleAppData bubbleAppData;
+
+
 
     void Start()
     {
         LoadFromJson();
+        LoadPosts();
     }
 
     public void LoadFromJson()
@@ -30,20 +38,48 @@ public class JsonReadWriteSystemBubble : MonoBehaviour
         string json = File.ReadAllText(jsonPath);
         bubbleAppData = JsonUtility.FromJson<BubbleAppData>(json);
 
-        // 测试显示第一个帖子的内容
-        if (bubbleAppData.posts.Count > 0)
-        {
-            DisplayPost(bubbleAppData.posts[0]);
-        }
     }
 
-    private void DisplayPost(PostData postData)
+    public void LoadPosts()
     {
-        // 显示帖子内容
-        titleInputField.text = postData.title;
-        postContentInputField.text = postData.content;
-        posterInputField.text = postData.poster;
-        timeInputField.text = FormatTime(postData.time);
+        if (bubbleAppData == null || bubbleAppData.posts.Count == 0)
+        {
+            Debug.LogWarning("No posts available to load.");
+            return;
+        }
+
+        // 实例化每个帖子并显示
+        foreach (PostData post in bubbleAppData.posts)
+        {
+            GameObject postObj = Instantiate(postPrefab, postsContainer);
+
+            // 获取帖子元素
+            Transform titleButtonTransform = postObj.transform.Find("TitleButton");
+            TMP_InputField titleInputField = titleButtonTransform.Find("TitleInputField").GetComponent<TMP_InputField>();
+
+            Transform ContentButtonTransform = postObj.transform.Find("ContentButton");
+            TMP_InputField contentInputField = ContentButtonTransform.Find("ContentInputField").GetComponent<TMP_InputField>();
+
+            TMP_InputField posterInputField = postObj.transform.Find("PosterInputField").GetComponent<TMP_InputField>();
+            TMP_InputField timeStampInputField = postObj.transform.Find("TimeStampInputField").GetComponent<TMP_InputField>();
+
+            // 设置为不可编辑（interactable = false）
+            titleInputField.interactable = false;
+            contentInputField.interactable = false;
+            posterInputField.interactable = false;
+            timeStampInputField.interactable = false;
+
+
+            // 填充内容
+            titleInputField.text = post.title;
+            contentInputField.text = post.content;
+            posterInputField.text = post.poster;
+            timeStampInputField.text = FormatTime(post.time);
+
+            //OnClick
+            Button titleButton = titleButtonTransform.GetComponent<Button>();
+            titleButton.onClick.AddListener(() => ShowDetailPage(post));
+        }
     }
 
     private string FormatTime(string timestamp)
@@ -53,4 +89,37 @@ public class JsonReadWriteSystemBubble : MonoBehaviour
         System.DateTime dateTime = System.DateTimeOffset.FromUnixTimeSeconds(unixTime).DateTime;
         return dateTime.ToString("yyyy-MM-dd HH:mm:ss");
     }
+
+    public void ShowDetailPage(PostData postData)
+    {
+        // 激活详情页 Canvas
+        detailPageCanvas.SetActive(true);
+
+        // 显示帖子详情页面
+        titleInputField.text = postData.title;
+        postContentInputField.text = postData.content;
+        posterInputField.text = postData.poster;
+        timeInputField.text = FormatTime(postData.time);
+
+        // Comments
+        DisplayComments(postData);
+    }
+
+    public void DisplayComments(PostData postData)
+    {
+        // 获取与帖子的评论相关的内容
+        string comments = "";
+        foreach (CommentData comment in bubbleAppData.comments)
+        {
+            if (comment.parentPostId == postData.globalId)
+            {
+                comments += comment.content + "\n";
+            }
+        }
+
+        // 假设你有一个评论显示区域
+        TMP_InputField commentsInputField = detailPageCanvas.transform.Find("CommentsInputField").GetComponent<TMP_InputField>();
+        commentsInputField.text = comments;
+    }
+
 }

@@ -608,7 +608,7 @@ GameObject:
   - component: {fileID: 206971453}
   - component: {fileID: 206971452}
   m_Layer: 5
-  m_Name: Keyframes
+  m_Name: Keyframes-Opening
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -991,13 +991,14 @@ GameObject:
   - component: {fileID: 350387523}
   - component: {fileID: 350387525}
   - component: {fileID: 350387524}
+  - component: {fileID: 350387526}
   m_Layer: 5
   m_Name: Image_Red-dot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &350387523
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1014,7 +1015,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 396, y: 380.99963}
+  m_AnchoredPosition: {x: 396, y: 380}
   m_SizeDelta: {x: 78, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &350387524
@@ -1055,6 +1056,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 350387522}
   m_CullTransparentMesh: 1
+--- !u!95 &350387526
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350387522}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 176f93ff0e0e5cf4cbbe7cfd49d1ec3c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &399168232
 GameObject:
   m_ObjectHideFlags: 0
@@ -1750,7 +1772,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &716919060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2374,7 +2396,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 03edabfd9f79b834fa97b6b714178ab2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fb42c3fcc5a11014f8fbbd00111ced54, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

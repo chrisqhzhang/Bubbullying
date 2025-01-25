@@ -24,24 +24,5 @@ public class BubbleData
         this.Description = data.Description;
         this.Size = 1;
     }
-
-    public void HandleClick(CapturableObject clickedObject)
-    {
-        if (CapturedManager.Instance.IsCaptureRunning()) return;
-        
-        if (MindBubbleManager.Instance.IsCaptured(this.Id))
-        {
-            CapturedManager.Instance.OnClickOnCapturedObject?.Invoke(clickedObject);
-        }
-        else
-        {
-            CapturedManager.Instance.OnClickOnNotCapturedObject?.Invoke(clickedObject);
-        }
-    }
-
-}
-
-public class BubbleDataPost : BubbleData
-{
-
+    
 }

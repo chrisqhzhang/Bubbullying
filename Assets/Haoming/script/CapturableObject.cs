@@ -1,21 +1,34 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CapturableObject : MonoBehaviour
 {
-    private void OnMouseUp()
+    private BubbleData bubbleData;
+    
+    protected void Awake()
     {
-        if (CapturedManager.Instance.IsCaptureRunning()) return;
-        
-        if (MindBubbleManager.Instance.IsCaptured(gameObject))
-        {
-            CapturedManager.Instance.OnClickOnCapturedObject?.Invoke(gameObject);
-        }
-        else
-        {
-            CapturedManager.Instance.OnClickOnNotCapturedObject?.Invoke(gameObject);
-        }
+        bubbleData = new BubbleData();
+        bubbleData.ConstructBubbleData(1, 
+            transform.GetChild(0).GetChild(0).GetComponent<TextMeshPro>().text, 
+            gameObject);
     }
+
+    protected void OnMouseUp()
+    {
+        bubbleData.HandleClick(this);
+    }
+
+    public int GetId()
+    {
+        return bubbleData.Id;
+    }
+    
+    public BubbleData GetBubbleData()
+    {
+        return bubbleData;
+    }
+    
 }

@@ -5,40 +5,40 @@ using UnityEngine;
 public class MindBubbleManager : Singleton<MindBubbleManager>
 {
     private Queue<MindBubble> mindBubbles = new Queue<MindBubble>();
+    private HashSet<int> capturedIds = new HashSet<int>();
+
+    [SerializeField] private GameObject mainPage;
+    [SerializeField] private GameObject bubblePage;
     
-    public bool IsCaptured(GameObject go)
+    public bool IsCaptured(int Id)
     {
-        return false;
-        // TODO: return if a go is captured
+        return capturedIds.Contains(Id);
     }
     
-    public void CaptureData(GameObject go)
+    public void CaptureData(BubbleData bubbleData)
     {
-        // mindBubbles.Enqueue(new MindBubble(id, content));
-
-        // mark as captured
+        if (IsCaptured(bubbleData.Id)) return;
+        
+        GameObject newBubbleObject = Instantiate(Resources.Load("SmallBubble"), bubblePage.transform) as GameObject;
+        MindBubble newBubble = newBubbleObject.GetComponent<MindBubble>();
+        
+        newBubble.ConstructMindBubble(bubbleData);
+        
+        mindBubbles.Enqueue(newBubble);
+        capturedIds.Add(newBubble.GetId());
+        
+        bubblePage.SetActive(false);
     }
 
-    public Queue<MindBubble> GetCapturedData()
+    public void ToggleBubblePageOn()
     {
-        return mindBubbles;
+        bubblePage.SetActive(true);
+        mainPage.SetActive(false);
     }
-}
-
-// Data structure for captured data
-[System.Serializable]
-public class MindBubble
-{
-    public string Id;
-    public string Content;
-    public int size;
-
-    public MindBubble(string id, string content)
-    {
-        Id = id;
-        Content = content;
-        size = 1;
-    }
-
     
+    public void ToggleBubblePageOff()
+    {
+        bubblePage.SetActive(false);
+        mainPage.SetActive(true);
+    }
 }

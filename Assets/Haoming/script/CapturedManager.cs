@@ -49,7 +49,8 @@ public class CapturedManager : Singleton<CapturedManager>
         OnClickOnNotCapturedObject += UpdateCurrentClickedObject;
 
         OnClickOnCapturedObject += ShowCapturedDoneButton;
-
+        OnClickOnCapturedObject += UpdateCurrentClickedObject;
+        
         OnClickOnBlank += UpdateCurrentClickedObject;
         OnClickOnBlank += HideCapturedButton;
 
@@ -152,6 +153,13 @@ public class CapturedManager : Singleton<CapturedManager>
 
     void UpdateCurrentClickedObject(CapturableObject capturedObject)
     {
+        if (capturedObject == null ||
+            MindBubbleManager.Instance.IsCaptured(capturedObject.GetId()))
+        {
+            _currentCapturedObject = null;
+            return;
+        }
+        
         _currentCapturedObject = capturedObject;
         if (capturedObject)
         {
@@ -162,6 +170,7 @@ public class CapturedManager : Singleton<CapturedManager>
        
     private void TriggerCapturedSound(CapturableObject capturedObject = null)
     {
+        audioSource.volume = 1;
         audioSource.Play();
     }
     

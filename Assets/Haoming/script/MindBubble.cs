@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class MindBubble : MonoBehaviour
 {
@@ -13,11 +14,21 @@ public class MindBubble : MonoBehaviour
     private float bubbleRadius;  
     private Vector2 screenBounds;
     private Vector2 positionTemp;
+    
     [SerializeField] private float repulsionForce = 0.1f;
     [SerializeField] private float displayOffsetX = 1f;
     [SerializeField] private float displayOffsetY = 10f;
     
+    [SerializeField] private float pulseAmplitude = 0.1f; 
+    [SerializeField] private float pulseSpeed = 2f; 
+    private float enmergingDuration = 2f;
+    
+    private Vector3 originalScale;
+    
     private BubbleData bubbleData;
+    
+    private bool isEnmerging;
+    
 
     private void Awake()
     {
@@ -33,15 +44,45 @@ public class MindBubble : MonoBehaviour
         
         CircleCollider2D collider = GetComponent<CircleCollider2D>();
         bubbleRadius = collider.bounds.extents.x;
+        
+        originalScale = transform.localScale;
+
+        pulseAmplitude += Random.Range(-0.02f, 0.02f);
+        pulseSpeed += Random.Range(-0.3f, 0.3f);
     }
 
     void Update()
+    {
+        EnsureBoundary();
+        Breathing();
+    }
+
+    private void EnsureBoundary()
     {
         positionTemp.x = Mathf.Clamp(transform.position.x, -screenBounds.x + bubbleRadius, screenBounds.x - bubbleRadius);
         positionTemp.y = Mathf.Clamp(transform.position.y, -screenBounds.y + bubbleRadius, screenBounds.y - bubbleRadius);
         transform.position = positionTemp;
     }
 
+    private void Breathing()
+    {
+        if (isEnmerging) return;
+        float scale = 1 + Mathf.Sin(Time.time * pulseSpeed) * pulseAmplitude;
+        transform.localScale = originalScale * scale;
+    }
+    
+    public void Enmerge()
+    {
+        isEnmerging = true;
+        transform.localScale = Vector3.zero;
+        LeanTween.scale(gameObject, originalScale, enmergingDuration).setEase(LeanTweenType.easeOutBack);
+        LeanTween.delayedCall(enmergingDuration, () =>
+        {
+            isEnmerging = false;
+            transform.localScale = originalScale;
+        });
+    }
+    
     public void ConstructMindBubble(BubbleData data)
     {
         bubbleData = data;
@@ -85,21 +126,14 @@ public class MindBubble : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1)) return;
+        // if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1)) return; // won't work
         
         Vector2 direction = (transform.position - other.transform.position).normalized;
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        if (rb != null)
-        {
-            rb.AddForce(direction * repulsionForce, ForceMode2D.Impulse);
-        }
-        //
-        // Rigidbody2D otherRb = other.gameObject.GetComponent<Rigidbody2D>();
-        // if (otherRb != null)
-        // {
-        //     otherRb.AddForce(direction * repulsionForce, ForceMode2D.Impulse);
-        // }
+        rb.AddForce(direction * repulsionForce, ForceMode2D.Impulse);
+        
+        MindBubbleManager.Instance.TriggerBubbleCollideSound();
     }
-    
+
 }

@@ -752,7 +752,7 @@ Transform:
   m_GameObject: {fileID: 511827569}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.85, y: 2.9, z: 0}
+  m_LocalPosition: {x: -9.38, y: 2.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -859,6 +859,8 @@ MonoBehaviour:
   mainPage: {fileID: 1925344159}
   bubblePage: {fileID: 631180075}
   startTransform: {fileID: 511827570}
+  bubbleMergeSound: {fileID: 8300000, guid: 6fb0722fd8fc6904eb1ff250093fd802, type: 3}
+  bubbleCollideSound: {fileID: 8300000, guid: 35ee30db41446b54f9d1ce878dba0bc5, type: 3}
 --- !u!114 &567455841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -877,7 +879,7 @@ MonoBehaviour:
   capturedButtonOffset: {x: 0.5, y: 0.5, z: 0}
   targetCorner: {fileID: 1882603398}
   flyDuration: 1
-  scaleReduction: 0.5
+  scaleReduction: 0.2
   flashMaterial: {fileID: 10756, guid: 0000000000000000e000000000000000, type: 0}
   flashDuration: 0.33
 --- !u!82 &567455842

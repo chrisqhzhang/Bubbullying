@@ -51,6 +51,8 @@ MonoBehaviour:
   repulsionForce: 0.2
   displayOffsetX: 1
   displayOffsetY: 11
+  pulseAmplitude: 0.06
+  pulseSpeed: 1.2
 --- !u!212 &528340504194823170
 SpriteRenderer:
   m_ObjectHideFlags: 0

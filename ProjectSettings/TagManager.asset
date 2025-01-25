@@ -3,16 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Capturable
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - CapturableLayer
+  - 
   - Water
   - UI
-  - InteractableUI
+  - 
   - 
   - 
   - 

@@ -24,7 +24,7 @@ public class CapturedManager : Singleton<CapturedManager>
     private int capturableLayer;
     
     private Material capturedOriginalMaterial;
-    private Renderer capturedObjectRenderer;
+    private Image capturedObjectImage;
     private Image buttonImage;
     private Camera mainCamera;
     
@@ -90,7 +90,7 @@ public class CapturedManager : Singleton<CapturedManager>
         
         capturedButton.SetActive(false);
         
-        buttonImage = capturedButton.transform.GetChild(0).GetChild(0).GetComponent<Image>();
+        buttonImage = capturedButton.GetComponent<Image>();
         buttonImage.sprite = defaultImage;
     }
     
@@ -123,11 +123,11 @@ public class CapturedManager : Singleton<CapturedManager>
         buttonImage.sprite = defaultImage;
         
         // capturedButton.transform.position = mainCamera.ScreenToWorldPoint(Input.mousePosition) + capturedButtonOffset;
-        
-        Vector3 loc = capturedObject.gameObject.transform.GetChild(0).position;
-        Vector3 scale = capturedObject.gameObject.transform.GetChild(0).lossyScale;
-
-        capturedButton.transform.position = loc + scale / 2;
+        //
+        // Vector3 loc = capturedObject.gameObject.transform.GetChild(0).position;
+        // Vector3 scale = capturedObject.gameObject.transform.GetChild(0).lossyScale;
+        //
+        // capturedButton.transform.position = loc + scale / 2;
         
         capturedButton.SetActive(true);
     }
@@ -138,10 +138,10 @@ public class CapturedManager : Singleton<CapturedManager>
         
         // capturedButton.transform.position = mainCamera.ScreenToWorldPoint(Input.mousePosition) + capturedButtonOffset;
 
-        Vector3 loc = capturedObject.gameObject.transform.GetChild(0).position;
-        Vector3 scale = capturedObject.gameObject.transform.GetChild(0).lossyScale;
-
-        capturedButton.transform.position = loc +  scale / 2;
+        // Vector3 loc = capturedObject.gameObject.transform.GetChild(0).position;
+        // Vector3 scale = capturedObject.gameObject.transform.GetChild(0).lossyScale;
+        //
+        // capturedButton.transform.position = loc +  scale / 2;
         
         capturedButton.SetActive(true);
     }
@@ -163,8 +163,10 @@ public class CapturedManager : Singleton<CapturedManager>
         _currentCapturedObject = capturedObject;
         if (capturedObject)
         {
-            capturedObjectRenderer = capturedObject.gameObject.transform.GetChild(0).GetComponent<Renderer>();
-            capturedOriginalMaterial = capturedObjectRenderer.material;
+            capturedObjectImage = capturedObject.gameObject.transform.GetChild(0).GetChild(0).GetComponent<Image>();
+            capturedOriginalMaterial = capturedObjectImage.material;
+            // capturedObjectRenderer = capturedObject.gameObject.transform.GetChild(0).GetComponent<Renderer>();
+            // capturedOriginalMaterial = capturedObjectRenderer.material;
         }
     }
        
@@ -188,9 +190,10 @@ public class CapturedManager : Singleton<CapturedManager>
 
     public void TriggerFlashAndFly(CapturableObject capturedObject = null)
     {
-        GameObject newcapturedObject = Instantiate(_currentCapturedObject.gameObject,
-                                        mainCamera.ScreenToWorldPoint(Input.mousePosition), 
-                                                Quaternion.identity);
+        GameObject newcapturedObject = Instantiate(_currentCapturedObject.gameObject);
+                                        //             
+                                        // mainCamera.ScreenToWorldPoint(Input.mousePosition), 
+                                        //         Quaternion.identity);
         
         LeanTween.scale(newcapturedObject, new Vector3(scaleReduction, scaleReduction, scaleReduction), flyDuration)
             .setEase(LeanTweenType.easeInQuad);
@@ -209,12 +212,12 @@ public class CapturedManager : Singleton<CapturedManager>
     
     private IEnumerator FlashCoroutine()
     {
-        GameObject capturedObjectChildren = _currentCapturedObject.transform.GetChild(0).GetChild(0).gameObject;
-        capturedObjectChildren.SetActive(false);
-        capturedObjectRenderer.material = flashMaterial;
+        // GameObject capturedObjectChildren = _currentCapturedObject.transform.GetChild(0).GetChild(0).gameObject;
+        // capturedObjectChildren.SetActive(false);
+        capturedObjectImage.material = flashMaterial;
         yield return new WaitForSeconds(flyDuration);
-        capturedObjectChildren.SetActive(true);
-        capturedObjectRenderer.material = capturedOriginalMaterial;
+        // capturedObjectChildren.SetActive(true);
+        capturedObjectImage.material = capturedOriginalMaterial;
     }
     
     public bool IsCaptureRunning()

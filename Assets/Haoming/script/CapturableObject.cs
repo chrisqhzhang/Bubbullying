@@ -7,15 +7,7 @@ using Random = UnityEngine.Random;
 
 public class CapturableObject : MonoBehaviour
 {
-    private BubbleData bubbleData;
-    
-    protected void Awake()
-    {
-        bubbleData = new BubbleData();
-        bubbleData.ConstructBubbleData(Random.Range(1, 10),  //TODO
-            transform.GetChild(0).GetChild(0).GetComponent<TextMeshPro>().text, 
-            gameObject);
-    }
+    protected BubbleData bubbleData;
 
     protected void OnMouseUp()
     {

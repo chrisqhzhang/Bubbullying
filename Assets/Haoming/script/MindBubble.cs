@@ -16,8 +16,6 @@ public class MindBubble : MonoBehaviour
     private Vector2 positionTemp;
     
     [SerializeField] private float repulsionForce = 0.1f;
-    [SerializeField] private float displayOffsetX = 1f;
-    [SerializeField] private float displayOffsetY = 10f;
     
     [SerializeField] private float pulseAmplitude = 0.1f; 
     [SerializeField] private float pulseSpeed = 2f; 
@@ -32,13 +30,6 @@ public class MindBubble : MonoBehaviour
 
     private void Awake()
     {
-        Vector2 startPosition = MindBubbleManager.Instance.startTransform.position;
-        
-        Vector2 newPosition = new Vector3(startPosition.x + displayOffsetX * MindBubbleManager.Instance.GetBubbleCount() % 10,
-            startPosition.y - displayOffsetY * (MindBubbleManager.Instance.GetBubbleCount() / 10));
-     
-        transform.position = newPosition;
-        
         Camera mainCamera = Camera.main;
         screenBounds = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, mainCamera.transform.position.z));
         
@@ -86,11 +77,11 @@ public class MindBubble : MonoBehaviour
     public void ConstructMindBubble(BubbleData data)
     {
         bubbleData = data;
-        GameObject newBubbleObject = Instantiate(data.Screenshot, this.transform);
-        
-        newBubbleObject.transform.localPosition = Vector3.zero + 0.2f * Vector3.up;
-        newBubbleObject.transform.localRotation = Quaternion.identity;
-        newBubbleObject.transform.localScale = this.transform.lossyScale * 0.1f;
+        // GameObject newBubbleObject = Instantiate(data.Screenshot, this.transform);
+        //
+        // newBubbleObject.transform.localPosition = Vector3.zero + 0.2f * Vector3.up;
+        // newBubbleObject.transform.localRotation = Quaternion.identity;
+        // newBubbleObject.transform.localScale = this.transform.lossyScale * 0.1f;
         
         transform.GetChild(0).GetComponent<TextMeshPro>().text = data.Description;
     }
@@ -122,12 +113,42 @@ public class MindBubble : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (!mouseReleased) return;
+
+        BubbleData bubbleDataOther = collision.GetComponent<MindBubble>().bubbleData;
+        
+        if (!MindBubbleManager.Instance.CanMerge(bubbleData, bubbleDataOther)) return;
+
+        MergeBubbles(bubbleData.Size + bubbleDataOther.Size, 
+                        bubbleData.Id + bubbleDataOther.Id);
+        
+        Destroy(this.gameObject);
+        Destroy(collision.gameObject);
     }
 
+    private void MergeBubbles(int size, int Id)
+    {
+        GameObject newBubble = null;
+        switch (size)
+        {
+            case 2:
+                newBubble = Instantiate(Resources.Load("Bubble2"), transform.parent) as GameObject;
+                return;
+            case 3:
+                newBubble = Instantiate(Resources.Load("Bubble3"), transform.parent) as GameObject;
+                return;
+            case 4:
+                newBubble = Instantiate(Resources.Load("Bubble4"), transform.parent) as GameObject;
+                return;
+        }
+
+        MindBubble mindBubble = newBubble.GetComponent<MindBubble>();
+        mindBubble.ConstructMindBubble(MindBubbleManager.Instance.GetBubbleData(Id));
+        MindBubbleManager.Instance.RecordMergedNewBubble(newBubble.GetComponent<MindBubble>());
+    }
+    
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1)) return; // won't work
-        
         Vector2 direction = (transform.position - other.transform.position).normalized;
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();

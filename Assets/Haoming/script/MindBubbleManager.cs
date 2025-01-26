@@ -1,14 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
-using System.Numerics;
-
 public class MindBubbleManager : Singleton<MindBubbleManager>
 {
     private Queue<MindBubble> mindBubbles = new Queue<MindBubble>();
     private Queue<MindBubble> newBubbles = new Queue<MindBubble>();
     private HashSet<int> capturedIds = new HashSet<int>();
+    
+    public List<HashSet<int>> mergeRecipes = new List<HashSet<int>>();
+
+    public List<BubbleData> PossibleMergeBubbles;
     
     [SerializeField] private GameObject mainPage;
     [SerializeField] private GameObject bubblePage;
@@ -18,6 +21,9 @@ public class MindBubbleManager : Singleton<MindBubbleManager>
     private AudioSource audioSource;
     [SerializeField] private AudioClip bubbleMergeSound;
     [SerializeField] private AudioClip bubbleCollideSound;
+    
+    private float displayOffsetX = 2.2f;
+    private float displayOffsetY = 4f;
 
     private void Start()
     {
@@ -29,12 +35,24 @@ public class MindBubbleManager : Singleton<MindBubbleManager>
         return capturedIds.Contains(Id);
     }
     
+    public BubbleData GetBubbleData(int Id)
+    {
+        foreach (var bubble in PossibleMergeBubbles)
+        {
+            if (bubble.Id == Id) return bubble;
+        }
+        return null;
+    }
+    
     public void CaptureData(BubbleData bubbleData)
     {
         if (IsCaptured(bubbleData.Id)) return;
         
-        GameObject newBubbleObject = Instantiate(Resources.Load("SmallBubble"), bubblePage.transform) as GameObject;
+        GameObject newBubbleObject = Instantiate(Resources.Load("Bubble1"), bubblePage.transform) as GameObject;
         MindBubble newBubble = newBubbleObject.GetComponent<MindBubble>();
+
+        newBubbleObject.transform.position =  new Vector2(startTransform.position.x + displayOffsetX * (GetBubbleCount() % 10),
+            startTransform.position.y - displayOffsetY * (GetBubbleCount() / 10));
         
         newBubble.ConstructMindBubble(bubbleData);
         
@@ -43,6 +61,13 @@ public class MindBubbleManager : Singleton<MindBubbleManager>
         capturedIds.Add(newBubble.GetId());
         
         bubblePage.SetActive(false);
+    }
+
+    public void RecordMergedNewBubble(MindBubble newBubble)
+    {
+        mindBubbles.Enqueue(newBubble);
+        // newBubbles.Enqueue(newBubble);
+        // capturedIds.Add(newBubble.GetId());
     }
 
     public void ToggleBubblePageOn()
@@ -84,5 +109,18 @@ public class MindBubbleManager : Singleton<MindBubbleManager>
     {
         audioSource.volume = 0.5f;
         audioSource.PlayOneShot(bubbleCollideSound);
+    }
+
+    public bool CanMerge(BubbleData b1, BubbleData b2)
+    {
+        int mergeSize = b1.Size + b2.Size;
+
+        return (mergeSize - 1) <= mergeRecipes.Count
+               && mergeRecipes[mergeSize - 2].Contains(toBinaryId(b1.Id) + toBinaryId(b2.Id));
+    }
+
+    private int toBinaryId(int Id)
+    {
+        return 1 << (Id - 1);
     }
 }

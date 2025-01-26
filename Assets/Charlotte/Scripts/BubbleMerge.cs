@@ -12,7 +12,7 @@ public class BubbleMerge : MonoBehaviour
     private float offsetX, offsetY;
     private static bool mouseReleased;
 
-    public MergeSystem ms;
+    //public MergeSystem ms;
 
     //private void Start()
     //{
@@ -51,14 +51,14 @@ public class BubbleMerge : MonoBehaviour
         thisGameObjectName = gameObject.name.Substring(0, name.IndexOf("_"));
         collisionGameObjectName = collision.gameObject.name.Substring(0, name.IndexOf("_"));
 
-        if (ms.isMergable && mouseReleased && thisGameObjectName == "SmallBubble" && thisGameObjectName == collisionGameObjectName)
+        if (/*ms.isMergable &&*/ mouseReleased && thisGameObjectName == "SmallBubble" && thisGameObjectName == collisionGameObjectName)
         {
             Instantiate(Resources.Load("MidBubble_Object"), transform.position, Quaternion.identity);
             mouseReleased = false;
             Destroy(gameObject);
             Destroy(collision.gameObject);
         }
-        else if (ms.isMergable && mouseReleased && thisGameObjectName == "MidBubble")
+        else if (/*ms.isMergable &&*/ mouseReleased && thisGameObjectName == "MidBubble")
         {
             Instantiate(Resources.Load("BigBubble_Object"), transform.position, Quaternion.identity);
             mouseReleased = false;

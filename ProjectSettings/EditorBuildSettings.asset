@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Chris/Scenes/StartMenu.unity
     guid: 146ef2dce3807a241bc5d1c6dd97feef
   - enabled: 1
+    path: Assets/Chris/Scenes/Opening.unity
+    guid: e1901ac9c9db8924780673bf102949ee
+  - enabled: 1
     path: Assets/Chris/Scenes/In-Game.unity
     guid: c0e40a99e3a036843a888ac205c19723
   - enabled: 1

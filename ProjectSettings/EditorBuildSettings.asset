@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Assets_Anthea/Scenes/Start.unity
-    guid: 9177b56fcde57b44cb46248aa2a2783a
+    path: Assets/Scenes/Start.unity
+    guid: cb150a8d234b0f849b5658e107d62b71
   - enabled: 1
-    path: Assets/Assets_Anthea/Scenes/SampleScene.unity
+    path: Assets/Scenes/gamePaper.unity
+    guid: a336b30eb743ad54594b42a36373c378
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}

@@ -26,6 +26,8 @@ public class BubbleAppManager : Singleton<BubbleAppManager>
     
     private float postVerticalHeight;
     private int postCount;
+
+    public Dictionary<int, int> commentCounts = new Dictionary<int, int>();
     
     private Queue<GameObject> commentsInDetail = new Queue<GameObject>();
 
@@ -50,7 +52,7 @@ public class BubbleAppManager : Singleton<BubbleAppManager>
             postObj.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = post.title;
             postObj.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = post.content;
             postObj.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = FormatTime(post.time);
-            postObj.transform.GetChild(4).GetComponent<TextMeshProUGUI>().text = post.commentCount + "";
+            postObj.transform.GetChild(4).GetComponent<TextMeshProUGUI>().text = commentCounts[post.globalId] + "";
             postObj.transform.GetChild(5).GetComponent<TextMeshProUGUI>().text = post.poster;
 
             postObj.GetComponent<PostObject>().ConstructPostData(post);
@@ -86,7 +88,7 @@ public class BubbleAppManager : Singleton<BubbleAppManager>
         postObjectTransform.GetChild(0).GetChild(2).GetComponent<TextMeshProUGUI>().text = FormatTime(postData.time);
         postObjectTransform.GetChild(0).GetChild(3).GetComponent<TextMeshProUGUI>().text = postData.content;
         postObjectTransform.GetChild(0).GetChild(4).GetComponent<TextMeshProUGUI>().text = postData.title;
-        postObjectTransform.GetChild(0).GetChild(5).GetComponent<TextMeshProUGUI>().text = postData.commentCount + "";
+        postObjectTransform.GetChild(0).GetChild(5).GetComponent<TextMeshProUGUI>().text = commentCounts[postData.globalId] + "";
         
         ShowComments(postData);
         
@@ -111,10 +113,12 @@ public class BubbleAppManager : Singleton<BubbleAppManager>
         int count = 0;
             
         Rect rectLocal = detailContent.GetComponent<RectTransform>().rect;
-        rectLocal.height += postData.commentCount * verticalOffset + pageHeightOffset;
+        rectLocal.height += commentCounts[postData.globalId] * verticalOffset + pageHeightOffset;
         
-        foreach (CommentData comment in postData.comments)
+        foreach (CommentData comment in JsonDataManager.Instance.bubbleAppData.comments)
         {
+            if (comment.globalId != postData.globalId) continue;
+            
             GameObject commentObj = Instantiate(commentPrefab, detailContent);
             
             commentObj.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = comment.content;

@@ -24,6 +24,11 @@ public class MindBubbleManager : Singleton<MindBubbleManager>
     
     private float displayOffsetX = 2.2f;
     private float displayOffsetY = 4f;
+    
+    public readonly object lockObject = new object();
+
+    public bool isMerge;
+
 
     private void Start()
     {
@@ -113,6 +118,8 @@ public class MindBubbleManager : Singleton<MindBubbleManager>
 
     public bool CanMerge(BubbleData b1, BubbleData b2)
     {
+        if (b1 == null || b2 == null) return false;
+        
         int mergeSize = b1.Size + b2.Size;
 
         return (mergeSize - 1) <= mergeRecipes.Count

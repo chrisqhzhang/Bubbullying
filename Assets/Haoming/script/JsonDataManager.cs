@@ -6,7 +6,7 @@ using System;
 
 public class JsonDataManager : Singleton<JsonDataManager>
 {
-    private BubbleAppData bubbleAppData;
+    public BubbleAppData bubbleAppData;
     
     void OnEnable()
     {
@@ -16,7 +16,7 @@ public class JsonDataManager : Singleton<JsonDataManager>
     public void LoadFromJson()
     {
         string bubbleDataPath = Application.dataPath + "/Assets_Anthea/Resources/BubbleDataFile.json";
-        string mergeBubbleDataPath = Application.dataPath + "/Assets_Anthea/Resources/MergeBubbleFile.json";
+        string mergeBubbleDataPath = Application.dataPath + "/Assets_Anthea/Resources/MergeBubbles.json";
 
         if (!File.Exists(bubbleDataPath))
         {
@@ -40,12 +40,12 @@ public class JsonDataManager : Singleton<JsonDataManager>
     {
         foreach (var post in bubbleAppData.posts)
         {
-            int count = 0;
-            foreach (var comment in post.comments)
-            {
-                count++;
-            }
-            post.commentCount = count;
+            BubbleAppManager.Instance.commentCounts.Add(post.globalId, 0);
+        }
+        
+        foreach (var comment in bubbleAppData.comments)
+        {
+            BubbleAppManager.Instance.commentCounts[comment.parentPostId] += 1;
         }
         
     }

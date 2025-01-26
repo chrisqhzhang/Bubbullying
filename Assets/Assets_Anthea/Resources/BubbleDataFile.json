@@ -1,9 +1,8 @@
 
     {
-        
             "posts": [
                 {
-                    "globalId": "post_001",
+                    "globalId": 1,
                     "contentId": "content_001",
                     "title": "Welcome to Bubble!",
                     "content": "This is the first post on Bubble Social App. Let's connect and share our thoughts!",
@@ -13,7 +12,67 @@
                     "poster": "Admin"
                 },
                 {
-                    "globalId": "post_002",
+                    "globalId": 2,
+                    "contentId": "content_002",
+                    "title": "Tips for Better Productivity",
+                    "content": "Here are five tips to improve your productivity: 1. Set clear goals, 2. Prioritize tasks, 3. Minimize distractions, 4. Take regular breaks, 5. Stay organized.",
+                    "summary": "Five quick productivity tips.",
+                    "type": "Post",
+                    "time": "1672617600",
+                    "poster": "ProductivityGuru"
+                },
+                {
+                    "globalId": 3,
+                    "contentId": "content_001",
+                    "title": "Welcome to Bubble!",
+                    "content": "This is the first post on Bubble Social App. Let's connect and share our thoughts!",
+                    "summary": "A welcome post for the Bubble app community.",
+                    "type": "Post",
+                    "time": "1672531200",
+                    "poster": "Admin"
+                },
+                {
+                    "globalId": 4,
+                    "contentId": "content_002",
+                    "title": "Tips for Better Productivity",
+                    "content": "Here are five tips to improve your productivity: 1. Set clear goals, 2. Prioritize tasks, 3. Minimize distractions, 4. Take regular breaks, 5. Stay organized.",
+                    "summary": "Five quick productivity tips.",
+                    "type": "Post",
+                    "time": "1672617600",
+                    "poster": "ProductivityGuru"
+                },
+                {
+                    "globalId": 5,
+                    "contentId": "content_001",
+                    "title": "Welcome to Bubble!",
+                    "content": "This is the first post on Bubble Social App. Let's connect and share our thoughts!",
+                    "summary": "A welcome post for the Bubble app community.",
+                    "type": "Post",
+                    "time": "1672531200",
+                    "poster": "Admin"
+                },
+                {
+                    "globalId": 6,
+                    "contentId": "content_002",
+                    "title": "Tips for Better Productivity",
+                    "content": "Here are five tips to improve your productivity: 1. Set clear goals, 2. Prioritize tasks, 3. Minimize distractions, 4. Take regular breaks, 5. Stay organized.",
+                    "summary": "Five quick productivity tips.",
+                    "type": "Post",
+                    "time": "1672617600",
+                    "poster": "ProductivityGuru"
+                },
+                {
+                    "globalId": 7,
+                    "contentId": "content_001",
+                    "title": "Welcome to Bubble!",
+                    "content": "This is the first post on Bubble Social App. Let's connect and share our thoughts!",
+                    "summary": "A welcome post for the Bubble app community.",
+                    "type": "Post",
+                    "time": "1672531200",
+                    "poster": "Admin"
+                },
+                {
+                    "globalId": 8,
                     "contentId": "content_002",
                     "title": "Tips for Better Productivity",
                     "content": "Here are five tips to improve your productivity: 1. Set clear goals, 2. Prioritize tasks, 3. Minimize distractions, 4. Take regular breaks, 5. Stay organized.",
@@ -25,24 +84,104 @@
             ],
             "comments": [
                 {
-                    "globalId": "comment_001",
+                    "globalId": 9,
                     "contentId": "content_003",
                     "content": "Thanks for the productivity tips. I'll definitely try them out!",
                     "summary": "Positive feedback on the productivity tips.",
                     "type": "Comment",
                     "time": "1672621200",
                     "poster": "User123",
-                    "parentPostId": "post_001"
+                    "parentPostId": 1
                 },
                 {
-                    "globalId": "comment_002",
+                    "globalId": 10,
                     "contentId": "content_004",
                     "content": "Excited to be part of this community!",
                     "summary": "User expressing excitement to join.",
                     "type": "Comment",
                     "time": "1672534800",
                     "poster": "NewUser",
-                    "parentPostId": "post_002"
+                    "parentPostId": 2
+                },
+                {
+                    "globalId": 11,
+                    "contentId": "content_003",
+                    "content": "Thanks for the productivity tips. I'll definitely try them out!",
+                    "summary": "Positive feedback on the productivity tips.",
+                    "type": "Comment",
+                    "time": "1672621200",
+                    "poster": "User123",
+                    "parentPostId": 8
+                },
+                {
+                    "globalId": 12,
+                    "contentId": "content_004",
+                    "content": "Excited to be part of this community!",
+                    "summary": "User expressing excitement to join.",
+                    "type": "Comment",
+                    "time": "1672534800",
+                    "poster": "NewUser",
+                    "parentPostId": 7
+                },
+                {
+                    "globalId": 13,
+                    "contentId": "content_003",
+                    "content": "Thanks for the productivity tips. I'll definitely try them out!",
+                    "summary": "Positive feedback on the productivity tips.",
+                    "type": "Comment",
+                    "time": "1672621200",
+                    "poster": "User123",
+                    "parentPostId": 7
+                },
+                {
+                    "globalId": 14,
+                    "contentId": "content_004",
+                    "content": "Excited to be part of this community!",
+                    "summary": "User expressing excitement to join.",
+                    "type": "Comment",
+                    "time": "1672534800",
+                    "poster": "NewUser",
+                    "parentPostId": 7
+                },
+                {
+                    "globalId": 15,
+                    "contentId": "content_003",
+                    "content": "Thanks for the productivity tips. I'll definitely try them out!",
+                    "summary": "Positive feedback on the productivity tips.",
+                    "type": "Comment",
+                    "time": "1672621200",
+                    "poster": "User123",
+                    "parentPostId": 6
+                },
+                {
+                    "globalId": 16,
+                    "contentId": "content_004",
+                    "content": "Excited to be part of this community!",
+                    "summary": "User expressing excitement to join.",
+                    "type": "Comment",
+                    "time": "1672534800",
+                    "poster": "NewUser",
+                    "parentPostId": 5
+                },
+                {
+                    "globalId": 17,
+                    "contentId": "content_003",
+                    "content": "Thanks for the productivity tips. I'll definitely try them out!",
+                    "summary": "Positive feedback on the productivity tips.",
+                    "type": "Comment",
+                    "time": "1672621200",
+                    "poster": "User123",
+                    "parentPostId": 4
+                },
+                {
+                    "globalId": 18,
+                    "contentId": "content_004",
+                    "content": "Excited to be part of this community!",
+                    "summary": "User expressing excitement to join.",
+                    "type": "Comment",
+                    "time": "1672534800",
+                    "poster": "NewUser",
+                    "parentPostId": 3
                 }
             ]
         

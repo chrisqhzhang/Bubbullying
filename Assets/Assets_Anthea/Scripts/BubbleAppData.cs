@@ -8,22 +8,29 @@ public class BubbleAppData
 }
 
 [System.Serializable]
+public class MergeBubbles
+{
+    public List<BubbleData> mergeBubbles;
+}
+
+
+[System.Serializable]
 public class PostData
 {
-    public string globalId;
+    public int globalId;
     public string contentId;
     public string title;
     public string content;
     public string summary;
     public string type; // "Post"
     public string time;
-    public string poster;
+    public string poster; 
 }
 
 [System.Serializable]
 public class CommentData
 {
-    public string globalId;
+    public int globalId;
     public string contentId;
     public string title;
     public string content;
@@ -31,6 +38,6 @@ public class CommentData
     public string type; // "Comment"
     public string time;
     public string poster;
-    public string parentPostId;
+    public int parentPostId;
 }
 

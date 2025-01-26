@@ -26,7 +26,6 @@ public class MindBubble : MonoBehaviour
     private BubbleData bubbleData;
     
     private bool isEnmerging;
-    
 
     private void Awake()
     {
@@ -113,18 +112,33 @@ public class MindBubble : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (!mouseReleased) return;
-
-        BubbleData bubbleDataOther = collision.GetComponent<MindBubble>().bubbleData;
         
-        if (!MindBubbleManager.Instance.CanMerge(bubbleData, bubbleDataOther)) return;
+        lock (MindBubbleManager.Instance.lockObject)
+        {
+            if (MindBubbleManager.Instance.isMerge) return; 
+            
+            BubbleData bubbleDataOther = collision.GetComponent<MindBubble>().bubbleData;
 
-        MergeBubbles(bubbleData.Size + bubbleDataOther.Size, 
-                        bubbleData.Id + bubbleDataOther.Id);
-        
+            if (!MindBubbleManager.Instance.CanMerge(bubbleData, bubbleDataOther)) return;
+
+            MindBubbleManager.Instance.isMerge = true; 
+            
+            MergeBubbles(bubbleData.Size + bubbleDataOther.Size, 
+                bubbleData.Id + bubbleDataOther.Id);
+        }
+
         Destroy(this.gameObject);
         Destroy(collision.gameObject);
+
+        StartCoroutine(ResetMergeState());
     }
 
+    private IEnumerator ResetMergeState()
+    {
+        yield return new WaitForSeconds(1f);
+        MindBubbleManager.Instance.isMerge = false;
+    }
+    
     private void MergeBubbles(int size, int Id)
     {
         GameObject newBubble = null;

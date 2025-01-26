@@ -13,7 +13,7 @@ EditorBuildSettings:
     guid: c0e40a99e3a036843a888ac205c19723
   - enabled: 1
     path: Assets/Chris/Scenes/BubbleApp.unity
-    guid: de80c807bd8cae14facedd67e9d74715
+    guid: 30b266747f7aa984f82b7cf153b04d19
   - enabled: 1
     path: Assets/Chris/Scenes/Animasphere.unity
     guid: 3bdda8979683f784188bbc519fcac624

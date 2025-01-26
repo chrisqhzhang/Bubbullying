@@ -1,14 +1,29 @@
 ﻿{
   "mergeBubbles" : [
     {
-      "Id": 10010,
+      "Ids": [1,5],
       "Description": "3456783924",
       "Size": 2
     },
     {
-      "Id": 101,
+      "Ids": [1,3],
       "Description": "hdfsfjdfjskdf",
       "Size": 2
+    },
+    {
+      "Ids": [1,48],
+      "Description": "hdfsfjdfjskdf",
+      "Size": 2
+    },
+    {
+      "Ids": [1,48,75],
+      "Description": "hdfsfjdfjskdf",
+      "Size": 3
+    },
+    {
+      "Ids": [1,48,75,97],
+      "Description": "hdfsfjdfjskdf",
+      "Size": 4
     }
   ]
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using System.Numerics;
 
 public class CapturableObject : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class CapturableObject : MonoBehaviour
         HandleClick(this);
     }
 
-    public int GetId()
+    public BigInteger GetId()
     {
         return bubbleData.Id;
     }

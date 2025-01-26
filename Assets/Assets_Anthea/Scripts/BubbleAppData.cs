@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Numerics;
 
 [System.Serializable]
 public class BubbleAppData 
@@ -17,6 +19,7 @@ public class MergeBubbles
 [System.Serializable]
 public class PostData
 {
+    [NonSerialized] public BigInteger Id;
     public int globalId;
     public string contentId;
     public string title;
@@ -30,6 +33,7 @@ public class PostData
 [System.Serializable]
 public class CommentData
 {
+    [NonSerialized] public BigInteger Id;
     public int globalId;
     public string contentId;
     public string title;

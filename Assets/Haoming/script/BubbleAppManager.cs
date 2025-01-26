@@ -7,6 +7,8 @@ using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Vector3 = System.Numerics.Vector3;
 using System.Collections.Generic;
+using System.Numerics;
+using Vector2 = UnityEngine.Vector2;
 
 
 public class BubbleAppManager : Singleton<BubbleAppManager>
@@ -27,7 +29,7 @@ public class BubbleAppManager : Singleton<BubbleAppManager>
     private float postVerticalHeight;
     private int postCount;
 
-    public Dictionary<int, int> commentCounts = new Dictionary<int, int>();
+    public Dictionary<BigInteger, int> commentCounts = new Dictionary<BigInteger, int>();
     
     private Queue<GameObject> commentsInDetail = new Queue<GameObject>();
 

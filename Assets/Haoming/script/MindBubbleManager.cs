@@ -3,13 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using System.Numerics;
+
 public class MindBubbleManager : Singleton<MindBubbleManager>
 {
     private Queue<MindBubble> mindBubbles = new Queue<MindBubble>();
     private Queue<MindBubble> newBubbles = new Queue<MindBubble>();
-    private HashSet<int> capturedIds = new HashSet<int>();
+    private HashSet<BigInteger> capturedIds = new HashSet<BigInteger>();
     
-    public List<HashSet<int>> mergeRecipes = new List<HashSet<int>>();
+    public List<HashSet<BigInteger>> mergeRecipes = new List<HashSet<BigInteger>>();
 
     public List<BubbleData> PossibleMergeBubbles;
     
@@ -35,12 +37,12 @@ public class MindBubbleManager : Singleton<MindBubbleManager>
         audioSource = GetComponent<AudioSource>();
     }
 
-    public bool IsCaptured(int Id)
+    public bool IsCaptured(BigInteger Id)
     {
         return capturedIds.Contains(Id);
     }
     
-    public BubbleData GetBubbleData(int Id)
+    public BubbleData GetBubbleData(BigInteger Id)
     {
         foreach (var bubble in PossibleMergeBubbles)
         {
@@ -56,7 +58,7 @@ public class MindBubbleManager : Singleton<MindBubbleManager>
         GameObject newBubbleObject = Instantiate(Resources.Load("Bubble1"), bubblePage.transform) as GameObject;
         MindBubble newBubble = newBubbleObject.GetComponent<MindBubble>();
 
-        newBubbleObject.transform.position =  new Vector2(startTransform.position.x + displayOffsetX * (GetBubbleCount() % 10),
+        newBubbleObject.transform.position =  new UnityEngine.Vector2(startTransform.position.x + displayOffsetX * (GetBubbleCount() % 10),
             startTransform.position.y - displayOffsetY * (GetBubbleCount() / 10));
         
         newBubble.ConstructMindBubble(bubbleData);
@@ -123,11 +125,8 @@ public class MindBubbleManager : Singleton<MindBubbleManager>
         int mergeSize = b1.Size + b2.Size;
 
         return (mergeSize - 1) <= mergeRecipes.Count
-               && mergeRecipes[mergeSize - 2].Contains(toBinaryId(b1.Id) + toBinaryId(b2.Id));
+               && mergeRecipes[mergeSize - 2].Contains(b1.Id + b2.Id);
     }
-
-    private int toBinaryId(int Id)
-    {
-        return 1 << (Id - 1);
-    }
+    
+    
 }

@@ -1,15 +1,20 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 public class MindBubble : MonoBehaviour
 {
     private Vector2 mousePosition;
     private float offsetX, offsetY;
-    private static bool mouseReleased;
+    
+    private static bool isMouseReleased;
+    private static bool isMouseHold;
     
     private float bubbleRadius;  
     private Vector2 screenBounds;
@@ -27,6 +32,9 @@ public class MindBubble : MonoBehaviour
     
     private bool isEnmerging;
 
+    [SerializeField] private Collider2D avoidCollisionCollider;
+    [SerializeField] private Collider2D dragToMiddleCollider; 
+    
     private void Awake()
     {
         Camera mainCamera = Camera.main;
@@ -39,6 +47,9 @@ public class MindBubble : MonoBehaviour
 
         pulseAmplitude += Random.Range(-0.02f, 0.02f);
         pulseSpeed += Random.Range(-0.3f, 0.3f);
+
+        avoidCollisionCollider = GetComponent<Collider2D>();
+        dragToMiddleCollider = transform.GetChild(0).GetComponent<Collider2D>();
     }
 
     void Update()
@@ -69,7 +80,10 @@ public class MindBubble : MonoBehaviour
         LeanTween.delayedCall(enmergingDuration, () =>
         {
             isEnmerging = false;
-            transform.localScale = originalScale;
+            if (this != null)
+            {
+                transform.localScale = originalScale;
+            }
         });
     }
     
@@ -82,17 +96,18 @@ public class MindBubble : MonoBehaviour
         // newBubbleObject.transform.localRotation = Quaternion.identity;
         // newBubbleObject.transform.localScale = this.transform.lossyScale * 0.1f;
         
-        transform.GetChild(0).GetComponent<TextMeshPro>().text = data.Description;
+        transform.GetChild(1).GetComponent<TextMeshPro>().text = data.Description;
     }
 
-    public int GetId()
+    public BigInteger GetId()
     {
         return bubbleData.Id;
     }
     
     private void OnMouseDown()
     {
-        mouseReleased = false;
+        isMouseReleased = false;
+        isMouseHold = true;
         offsetX = Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x;
         offsetX = Camera.main.ScreenToWorldPoint(Input.mousePosition).y - transform.position.y;
     }
@@ -106,55 +121,56 @@ public class MindBubble : MonoBehaviour
 
     private void OnMouseUp()
     {
-        mouseReleased = true;
+        isMouseReleased = true;
+        isMouseHold = false;
     }
-
-    private void OnTriggerStay2D(Collider2D collision)
+    
+    private void OnTriggerStay2D(Collider2D other)
     {
-        if (!mouseReleased) return;
+        if (!isMouseReleased) return;
         
-        lock (MindBubbleManager.Instance.lockObject)
+        if (dragToMiddleCollider.bounds.Intersects(other.bounds) &&
+            other.CompareTag("MergeCollider"))
         {
             if (MindBubbleManager.Instance.isMerge) return; 
-            
-            BubbleData bubbleDataOther = collision.GetComponent<MindBubble>().bubbleData;
+        
+            BubbleData bubbleDataOther = other.transform.parent?.GetComponent<MindBubble>().bubbleData;
 
             if (!MindBubbleManager.Instance.CanMerge(bubbleData, bubbleDataOther)) return;
 
             MindBubbleManager.Instance.isMerge = true; 
+        
+            MergeBubbles(bubbleData.Size + bubbleDataOther.Size,
+                BubbleHelper.GetMergeId(bubbleData.Id, bubbleDataOther.Id));
             
-            MergeBubbles(bubbleData.Size + bubbleDataOther.Size, 
-                bubbleData.Id + bubbleDataOther.Id);
+            MindBubbleManager.Instance.isMerge = false;
+            
+            Destroy(other.transform.parent.gameObject);
+            Destroy(this.gameObject);
+            
+            return;
         }
-
-        Destroy(this.gameObject);
-        Destroy(collision.gameObject);
-
-        StartCoroutine(ResetMergeState());
-    }
-
-    private IEnumerator ResetMergeState()
-    {
-        yield return new WaitForSeconds(1f);
-        MindBubbleManager.Instance.isMerge = false;
     }
     
-    private void MergeBubbles(int size, int Id)
+    
+    private void MergeBubbles(int size, BigInteger Id)
     {
         GameObject newBubble = null;
         switch (size)
         {
             case 2:
                 newBubble = Instantiate(Resources.Load("Bubble2"), transform.parent) as GameObject;
-                return;
+                break;
             case 3:
                 newBubble = Instantiate(Resources.Load("Bubble3"), transform.parent) as GameObject;
-                return;
+                break;
             case 4:
                 newBubble = Instantiate(Resources.Load("Bubble4"), transform.parent) as GameObject;
-                return;
+                break;
         }
 
+        newBubble.transform.position = transform.position;
+        
         MindBubble mindBubble = newBubble.GetComponent<MindBubble>();
         mindBubble.ConstructMindBubble(MindBubbleManager.Instance.GetBubbleData(Id));
         MindBubbleManager.Instance.RecordMergedNewBubble(newBubble.GetComponent<MindBubble>());
@@ -163,6 +179,30 @@ public class MindBubble : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other)
     {
+        // if (!isMouseReleased) return;
+        
+        // if (dragToMiddleCollider.bounds.Intersects(other.bounds) &&
+        //     other.CompareTag("MergeCollider"))
+        // {
+        //     if (MindBubbleManager.Instance.isMerge) return; 
+        //
+        //     BubbleData bubbleDataOther = other.transform.parent?.GetComponent<MindBubble>().bubbleData;
+        //
+        //     if (!MindBubbleManager.Instance.CanMerge(bubbleData, bubbleDataOther)) return;
+        //
+        //     MindBubbleManager.Instance.isMerge = true; 
+        //
+        //     MergeBubbles(bubbleData.Size + bubbleDataOther.Size,
+        //                     bubbleData.Id + bubbleDataOther.Id);
+        //     
+        //     StartCoroutine(MindBubbleManager.Instance.ResetMergeState());
+        //     
+        //     Destroy(other.transform.parent.gameObject);
+        //     Destroy(this.gameObject);
+        //     
+        //     return;
+        // }
+
         Vector2 direction = (transform.position - other.transform.position).normalized;
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();

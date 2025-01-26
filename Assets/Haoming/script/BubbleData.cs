@@ -2,16 +2,18 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Numerics;
 
 [System.Serializable]
 public class BubbleData
 {
-    public int Id;
+    [NonSerialized] public BigInteger Id;
+    public List<int> Ids; 
     public string Description;
     public int Size;
     [NonSerialized] public GameObject Screenshot;
     
-    public void ConstructBubbleData(int id, string description, GameObject screenshot)
+    public void ConstructBubbleData(BigInteger id, string description, GameObject screenshot)
     {
         this.Screenshot = null; // TODO screenshot
         this.Id = id;

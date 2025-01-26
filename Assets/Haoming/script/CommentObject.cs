@@ -10,6 +10,6 @@ public class CommentObject : CapturableObject
     {
         commentData = comment;
         bubbleData = new BubbleData();
-        bubbleData.ConstructBubbleData(comment.globalId, comment.summary, gameObject);
+        bubbleData.ConstructBubbleData(comment.Id, comment.summary, gameObject);
     }
 }

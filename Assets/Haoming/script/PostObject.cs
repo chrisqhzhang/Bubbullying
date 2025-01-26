@@ -11,7 +11,7 @@ public class PostObject : CapturableObject
     {
         postData = post;
         bubbleData = new BubbleData();
-        bubbleData.ConstructBubbleData(post.globalId, post.summary, gameObject);
+        bubbleData.ConstructBubbleData(post.Id, post.summary, gameObject);
     }
 
     public void ShowDetail()

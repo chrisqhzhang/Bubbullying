@@ -13,9 +13,12 @@ EditorBuildSettings:
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     path: Assets/Chris/Scenes/Opening.unity
     guid: e1901ac9c9db8924780673bf102949ee
 =======
+=======
+>>>>>>> Stashed changes
     path: Assets/Chris/Scenes/StartMenu.unity
     guid: 146ef2dce3807a241bc5d1c6dd97feef
   - enabled: 1
@@ -27,5 +30,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Chris/Scenes/Animasphere.unity
     guid: 3bdda8979683f784188bbc519fcac624
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   m_configObjects: {}

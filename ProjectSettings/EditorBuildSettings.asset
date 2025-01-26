@@ -4,5 +4,17 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Chris/Scenes/StartMenu.unity
+    guid: 146ef2dce3807a241bc5d1c6dd97feef
+  - enabled: 1
+    path: Assets/Chris/Scenes/In-Game.unity
+    guid: c0e40a99e3a036843a888ac205c19723
+  - enabled: 1
+    path: Assets/Chris/Scenes/BubbleApp.unity
+    guid: 30b266747f7aa984f82b7cf153b04d19
+  - enabled: 1
+    path: Assets/Chris/Scenes/Animasphere.unity
+    guid: 3bdda8979683f784188bbc519fcac624
   m_configObjects: {}

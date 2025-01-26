@@ -39,6 +39,10 @@ public class BubbleAppManager : Singleton<BubbleAppManager>
         LoadPosts();
         detailPage.SetActive(false);
         postVerticalHeight = postPrefab.transform.GetChild(0).GetComponent<RectTransform>().rect.height;
+        foreach (var entry in commentCounts)
+        {
+            UnityEngine.Debug.Log($"Post globalId: {entry.Key}, Comment count: {entry.Value}");
+        }
     }
 
     public void LoadPosts()
@@ -91,7 +95,8 @@ public class BubbleAppManager : Singleton<BubbleAppManager>
         postObjectTransform.GetChild(0).GetChild(5).GetComponent<TextMeshProUGUI>().text = commentCounts[postData.globalId] + "";
         
         ShowComments(postData);
-        
+        UnityEngine.Debug.Log($"Showing details for post: {postData.title} (globalId: {postData.globalId})");
+
         postObjectTransform.GetComponent<PostObject>().ConstructPostData(postData);
         
         mainPage.SetActive(false);
@@ -114,11 +119,20 @@ public class BubbleAppManager : Singleton<BubbleAppManager>
             
         Rect rectLocal = detailContent.GetComponent<RectTransform>().rect;
         rectLocal.height += commentCounts[postData.globalId] * verticalOffset + pageHeightOffset;
-        
+
+        UnityEngine.Debug.Log($"Checking comments for post with globalId: {postData.globalId}");
+
         foreach (CommentData comment in JsonDataManager.Instance.bubbleAppData.comments)
         {
-            if (comment.globalId != postData.globalId) continue;
-            
+            UnityEngine.Debug.Log($"Comment globalId: {comment.globalId}");
+            if (comment.parentPostId != postData.globalId)
+            {
+                UnityEngine.Debug.Log("Comment does not match, skipping.");
+                UnityEngine.Debug.Log($"Post globalId: {postData.globalId}, Comment globalId: {comment.globalId}");
+                continue;
+            }
+            UnityEngine.Debug.Log("Found matching comment!");
+
             GameObject commentObj = Instantiate(commentPrefab, detailContent);
             
             commentObj.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = comment.content;

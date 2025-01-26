@@ -1,189 +1,1217 @@
 
     {
-            "posts": [
-                {
-                    "globalId": 1,
-                    "contentId": "content_001",
-                    "title": "Welcome to Bubble!",
-                    "content": "This is the first post on Bubble Social App. Let's connect and share our thoughts!",
-                    "summary": "A welcome post for the Bubble app community.",
-                    "type": "Post",
-                    "time": "1672531200",
-                    "poster": "Admin"
-                },
-                {
-                    "globalId": 2,
-                    "contentId": "content_002",
-                    "title": "Tips for Better Productivity",
-                    "content": "Here are five tips to improve your productivity: 1. Set clear goals, 2. Prioritize tasks, 3. Minimize distractions, 4. Take regular breaks, 5. Stay organized.",
-                    "summary": "Five quick productivity tips.",
-                    "type": "Post",
-                    "time": "1672617600",
-                    "poster": "ProductivityGuru"
-                },
-                {
-                    "globalId": 3,
-                    "contentId": "content_001",
-                    "title": "Welcome to Bubble!",
-                    "content": "This is the first post on Bubble Social App. Let's connect and share our thoughts!",
-                    "summary": "A welcome post for the Bubble app community.",
-                    "type": "Post",
-                    "time": "1672531200",
-                    "poster": "Admin"
-                },
-                {
-                    "globalId": 4,
-                    "contentId": "content_002",
-                    "title": "Tips for Better Productivity",
-                    "content": "Here are five tips to improve your productivity: 1. Set clear goals, 2. Prioritize tasks, 3. Minimize distractions, 4. Take regular breaks, 5. Stay organized.",
-                    "summary": "Five quick productivity tips.",
-                    "type": "Post",
-                    "time": "1672617600",
-                    "poster": "ProductivityGuru"
-                },
-                {
-                    "globalId": 5,
-                    "contentId": "content_001",
-                    "title": "Welcome to Bubble!",
-                    "content": "This is the first post on Bubble Social App. Let's connect and share our thoughts!",
-                    "summary": "A welcome post for the Bubble app community.",
-                    "type": "Post",
-                    "time": "1672531200",
-                    "poster": "Admin"
-                },
-                {
-                    "globalId": 6,
-                    "contentId": "content_002",
-                    "title": "Tips for Better Productivity",
-                    "content": "Here are five tips to improve your productivity: 1. Set clear goals, 2. Prioritize tasks, 3. Minimize distractions, 4. Take regular breaks, 5. Stay organized.",
-                    "summary": "Five quick productivity tips.",
-                    "type": "Post",
-                    "time": "1672617600",
-                    "poster": "ProductivityGuru"
-                },
-                {
-                    "globalId": 7,
-                    "contentId": "content_001",
-                    "title": "Welcome to Bubble!",
-                    "content": "This is the first post on Bubble Social App. Let's connect and share our thoughts!",
-                    "summary": "A welcome post for the Bubble app community.",
-                    "type": "Post",
-                    "time": "1672531200",
-                    "poster": "Admin"
-                },
-                {
-                    "globalId": 8,
-                    "contentId": "content_002",
-                    "title": "Tips for Better Productivity",
-                    "content": "Here are five tips to improve your productivity: 1. Set clear goals, 2. Prioritize tasks, 3. Minimize distractions, 4. Take regular breaks, 5. Stay organized.",
-                    "summary": "Five quick productivity tips.",
-                    "type": "Post",
-                    "time": "1672617600",
-                    "poster": "ProductivityGuru"
-                }
-            ],
-            "comments": [
-                {
-                    "globalId": 9,
-                    "contentId": "content_003",
-                    "content": "Thanks for the productivity tips. I'll definitely try them out!",
-                    "summary": "Positive feedback on the productivity tips.",
-                    "type": "Comment",
-                    "time": "1672621200",
-                    "poster": "User123",
-                    "parentPostId": 1
-                },
-                {
-                    "globalId": 10,
-                    "contentId": "content_004",
-                    "content": "Excited to be part of this community!",
-                    "summary": "User expressing excitement to join.",
-                    "type": "Comment",
-                    "time": "1672534800",
-                    "poster": "NewUser",
-                    "parentPostId": 2
-                },
-                {
-                    "globalId": 11,
-                    "contentId": "content_003",
-                    "content": "Thanks for the productivity tips. I'll definitely try them out!",
-                    "summary": "Positive feedback on the productivity tips.",
-                    "type": "Comment",
-                    "time": "1672621200",
-                    "poster": "User123",
-                    "parentPostId": 8
-                },
-                {
-                    "globalId": 12,
-                    "contentId": "content_004",
-                    "content": "Excited to be part of this community!",
-                    "summary": "User expressing excitement to join.",
-                    "type": "Comment",
-                    "time": "1672534800",
-                    "poster": "NewUser",
-                    "parentPostId": 7
-                },
-                {
-                    "globalId": 13,
-                    "contentId": "content_003",
-                    "content": "Thanks for the productivity tips. I'll definitely try them out!",
-                    "summary": "Positive feedback on the productivity tips.",
-                    "type": "Comment",
-                    "time": "1672621200",
-                    "poster": "User123",
-                    "parentPostId": 7
-                },
-                {
-                    "globalId": 14,
-                    "contentId": "content_004",
-                    "content": "Excited to be part of this community!",
-                    "summary": "User expressing excitement to join.",
-                    "type": "Comment",
-                    "time": "1672534800",
-                    "poster": "NewUser",
-                    "parentPostId": 7
-                },
-                {
-                    "globalId": 15,
-                    "contentId": "content_003",
-                    "content": "Thanks for the productivity tips. I'll definitely try them out!",
-                    "summary": "Positive feedback on the productivity tips.",
-                    "type": "Comment",
-                    "time": "1672621200",
-                    "poster": "User123",
-                    "parentPostId": 6
-                },
-                {
-                    "globalId": 16,
-                    "contentId": "content_004",
-                    "content": "Excited to be part of this community!",
-                    "summary": "User expressing excitement to join.",
-                    "type": "Comment",
-                    "time": "1672534800",
-                    "poster": "NewUser",
-                    "parentPostId": 5
-                },
-                {
-                    "globalId": 17,
-                    "contentId": "content_003",
-                    "content": "Thanks for the productivity tips. I'll definitely try them out!",
-                    "summary": "Positive feedback on the productivity tips.",
-                    "type": "Comment",
-                    "time": "1672621200",
-                    "poster": "User123",
-                    "parentPostId": 4
-                },
-                {
-                    "globalId": 18,
-                    "contentId": "content_004",
-                    "content": "Excited to be part of this community!",
-                    "summary": "User expressing excitement to join.",
-                    "type": "Comment",
-                    "time": "1672534800",
-                    "poster": "NewUser",
-                    "parentPostId": 3
-                }
-            ]
+        "posts": [
+            {
+                "globalId": 1,
+                "contentId": "post_001",
+                "content": "The streamer is super knowledgeable but just doesn’t want to work a regular job, so she started streaming instead. The chat? Absolute legends. Smooth talkers, every single one of them. Feels like home when you enter the stream, and honestly, the streamer’s sleep schedule looks like she's straight out of a detention center. If you're looking to expand your knowledge and live a healthier lifestyle, you're in luck.\n\nRight now, she mostly stream single-player games. She does a ton of research beforehand and talks about the cultural and historical context of the game while playing - but it never feels like a boring lecture.",
+                "summary": "Recommend Streamer Goo.",
+                "title": "Recommend a niche streamer, Goo. For all the wellness bros out there, you're in luck.",
+                "type": "Post",
+                "time": 1772238511,
+                "poster": "YeetMeister9000",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 48,
+                "contentId": "post_002",
+                "content": "It feels like she looks down on us.",
+                "summary": "Goo’s stream on Jul.20 looked down us",
+                "title": "Did anyone catch Goo’s stream today?",
+                "type": "Post",
+                "time": 1790295754,
+                "poster": "RedditGoldDigga",
+                "parentPostId": 48
+            },
+            {
+                "globalId": 75,
+                "contentId": "post_003",
+                "content": "Seeing all the drama about Goo blowing up on the forum yesterday, I figured I’d drop some behind-the-scenes tea. I’m a few years younger than Goo, so I never interacted with her directly, but this is what I’ve heard from people who did. Take it with a grain of salt.\n\nFirst off, something confirmed: Goo was a Master student at Caltech University but didn’t graduate. She dropped out during her final year, so it’s hard to notice the gap just based on timing.\n\nGoo got into gaming because of her boyfriend at the time. It started as casual fun, but during her last year in school, she got pretty hooked. That said, gaming wasn’t the only thing; she barely showed up at her lab or even her apartment—most of her time was spent at bars.\n\nEventually, she and her boyfriend broke up, and not long after, she decided to drop out. Fun fact (or not so fun, depending on how you see it): the ex reportedly ended up in rehab for substance abuse later on.\n\nAfter dropping out, Goo had a rocky relationship with her family and didn’t keep in touch with them much. This probably means she wasn’t getting financial support from home, and back then, her streaming income was next to nothing (probably still isn’t much now). Kinda makes you wonder how she was covering her expenses during that time.\n\nThat’s about all the significant stuff. There’s some wilder rumors out there, but I’m not buying them, so I’ll leave them out.",
+                "summary": "Goo’s backstory in Caltech",
+                "title": "Any alumni from Caltech University here? Spill the tea on Goo’s backstory!",
+                "type": "Post",
+                "time": 1792639335,
+                "poster": "NPCWithSideQuests",
+                "parentPostId": 75
+            },
+            {
+                "globalId": 97,
+                "contentId": "post_004",
+                "content": "#BlackMythWukongConcert",
+                "summary": "#BlackMythWukongConcert",
+                "title": "Saw Goo. Feeling so happy, so lucky, so blessed.",
+                "type": "Post",
+                "time": 1773102493,
+                "poster": "SolarLynx",
+                "parentPostId": 97
+            },
+            {
+                "globalId": 101,
+                "contentId": "post_005",
+                "content": "Her gameplay is so smooth and impressive—only a few mobs glitched out. Plus, she never makes the same mistake twice. The best part? She’s insanely calm the whole time. Oh, and no surprise, she’s such a cultured queen! She was explaining the original Journey to the West lore while taking down bosses",
+                "summary": "Goo‘s gameplay is excellent.",
+                "title": "Goo’s gameplay is crazy good!",
+                "type": "Post",
+                "time": 1773625328,
+                "poster": "TofuNinja",
+                "parentPostId": 101
+            },
+            {
+                "globalId": 109,
+                "contentId": "post_006",
+                "content": "Goo was wearing the graphic tee I’ve been eyeing recently. OMG, she looked gorgeous.",
+                "summary": "Goo was wearing the graphic tee I’ve been eyeing recently. OMG, she looked gorgeous.",
+                "title": "Goo wore the graphic tee I’ve been obsessed with!",
+                "type": "Post",
+                "time": 1775750718,
+                "poster": "PixelatedMango",
+                "parentPostId": 109
+            },
+            {
+                "globalId": 112,
+                "contentId": "post_007",
+                "content": "Why hasn’t the replay of her stream from the other day been uploaded yet?",
+                "summary": "Why hasn’t the replay of her stream from the other day been uploaded yet?",
+                "title": "When do her stream replays usually drop?",
+                "type": "Post",
+                "time": 1792645397,
+                "poster": "HyperFungi",
+                "parentPostId": 112
+            },
+            {
+                "globalId": 118,
+                "contentId": "post_008",
+                "content": "Goo’s trending these past few days—any lore masters here to fill us in?",
+                "summary": "Goo’s trending these past few days—any lore masters here to fill us in?",
+                "title": "Can someone give us the rundown on Goo?",
+                "type": "Post",
+                "time": 1792740121,
+                "poster": "EmberGlow",
+                "parentPostId": 118
+            }
+        ],
+        "comments": [
+            {
+                "globalId": 2,
+                "contentId": "comment_1001",
+                "content": "Damn, I can tell you’re a real one.",
+                "summary": "Damn, I can tell you’re a real one.",
+                "type": "Comment",
+                "time": 1772238511,
+                "poster": "QuantumBagel42",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 3,
+                "contentId": "comment_1002",
+                "content": "Follow Goo, thanks meow.",
+                "summary": "Follow Goo, thanks meow.",
+                "type": "Comment",
+                "time": 1772238707,
+                "poster": "YeetMeister9000",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 4,
+                "contentId": "comment_1003",
+                "content": "Detention center sleep schedule, lmao.",
+                "summary": "Detention center sleep schedule, lmao.",
+                "type": "Comment",
+                "time": 1772238903,
+                "poster": "ExistentialMemeLord",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 5,
+                "contentId": "comment_1004",
+                "content": "Finally found a fellow Goo fan! \nDetention center gang, rise up!",
+                "summary": "Finally found a fellow Goo fan! \nDetention center gang, rise up!",
+                "type": "Comment",
+                "time": 1772239119,
+                "poster": "SpicyNuggetDealer",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 6,
+                "contentId": "comment_1005",
+                "content": "I saw a game analysis video recently, and it actually used clips from her broadcast!",
+                "summary": "I saw a game analysis video recently, and it actually used clips from her broadcast!",
+                "type": "Comment",
+                "time": 1772239335,
+                "poster": "UnpaidIntern420",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 7,
+                "contentId": "comment_1006",
+                "content": "Checked it out on recommendation. Lowkey stole some of it for my final paper.",
+                "summary": "Checked it out on recommendation. Lowkey stole some of it for my final paper.",
+                "type": "Comment",
+                "time": 1772239551,
+                "poster": "CouchGoblinX",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 8,
+                "contentId": "comment_1007",
+                "content": "Bro, if it's for academic purposes, it’s not stealing.",
+                "summary": "Bro, if it's for academic purposes, it’s not stealing.",
+                "type": "Comment",
+                "time": 1772239767,
+                "poster": "DankSideOfTheMoon",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 9,
+                "contentId": "comment_1008",
+                "content": "She's not that niche, tbh.",
+                "summary": "She's not that niche, tbh.",
+                "type": "Comment",
+                "time": 1772239983,
+                "poster": "FBI_Van_WiFi",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 10,
+                "contentId": "comment_1009",
+                "content": "Errant Signal but genderbent.",
+                "summary": "Errant Signal but genderbent.",
+                "type": "Comment",
+                "time": 1772240209,
+                "poster": "CtrlAltDelirious",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 11,
+                "contentId": "comment_1010",
+                "content": "She’s from Caltech University, huh?",
+                "summary": "She’s from Caltech University, huh?",
+                "type": "Comment",
+                "time": 1772240425,
+                "poster": "ShrekOnASegway",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 12,
+                "contentId": "comment_1011",
+                "content": "Kinda too cultured… I’m falling asleep listening.",
+                "summary": "Kinda too cultured… I’m falling asleep listening.",
+                "type": "Comment",
+                "time": 1772240641,
+                "poster": "CaffeineOverlord",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 13,
+                "contentId": "comment_1012",
+                "content": "10-11 PM is the perfect time to tune in—built-in ASMR to help you get on the detention center schedule.",
+                "summary": "10-11 PM is the perfect time to tune in—built-in ASMR to help you get on the detention center schedule.",
+                "type": "Comment",
+                "time": 1772240867,
+                "poster": "SneakySockThief",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 14,
+                "contentId": "comment_1013",
+                "content": "So soothing~ love it~",
+                "summary": "So soothing~ love it~",
+                "type": "Comment",
+                "time": 1772241083,
+                "poster": "LigmaSurvivor99",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 15,
+                "contentId": "comment_1014",
+                "content": "If you're interested, check out this clip where she talks about Kentucky Route Zero.",
+                "summary": "If you're interested, check out this clip where she talks about Kentucky Route Zero.",
+                "type": "Comment",
+                "time": 1772241299,
+                "poster": "BoredAndScrolling",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 16,
+                "contentId": "comment_1015",
+                "content": "KR0 completely went over my head.",
+                "summary": "KR0 completely went over my head.",
+                "type": "Comment",
+                "time": 1772241519,
+                "poster": "InfiniteScrollDoom",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 17,
+                "contentId": "comment_1016",
+                "content": "Does she ever do karaoke?",
+                "summary": "Does she ever do karaoke?",
+                "type": "Comment",
+                "time": 1772241737,
+                "poster": "BruhMomentVortex",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 18,
+                "contentId": "comment_1017",
+                "content": "Nah, never. But maybe when she hits 10k subs?",
+                "summary": "Nah, never. But maybe when she hits 10k subs?",
+                "type": "Comment",
+                "time": 1772241955,
+                "poster": "YeetMeister9000",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 19,
+                "contentId": "comment_1018",
+                "content": "Tried watching her stream a few times… just couldn’t get into it. Probably not my thing.",
+                "summary": "Tried watching her stream a few times… just couldn’t get into it. Probably not my thing.",
+                "type": "Comment",
+                "time": 1772242173,
+                "poster": "TooManyTabsOpen",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 20,
+                "contentId": "comment_1019",
+                "content": "Took the bait, reporting back! Never seen a more perfect streamer!",
+                "summary": "Took the bait, reporting back! Never seen a more perfect streamer!",
+                "type": "Comment",
+                "time": 1772242391,
+                "poster": "BigMoodEnergy",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 21,
+                "contentId": "comment_1020",
+                "content": "Also, she has a cat. Sometimes makes a guest appearance.",
+                "summary": "Also, she has a cat. Sometimes makes a guest appearance.",
+                "type": "Comment",
+                "time": 1772242609,
+                "poster": "YeetMeister9000",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 22,
+                "contentId": "comment_1021",
+                "content": "New viewers, don’t bother. This one’s already 'fallen from grace.' Yesterday, she straight-up admitted that gaming is just a way to kill time, and watching streams is the same. And as an Caltech Uni student, her way of killing time is just different from you filthy casuals - reading, writing, music, art. Basically, just another form of procrastination. But, you know, the classy kind.",
+                "summary": "New viewers, don’t bother. This one’s already 'fallen from grace.' Yesterday, she straight-up admitted that gaming is just a way to kill time, and watching streams is the same. And as an Caltech Uni student, her way of killing time is just different from you filthy casuals - reading, writing, music, art. Basically, just another form of procrastination. But, you know, the classy kind.",
+                "type": "Comment",
+                "time": 1772242827,
+                "poster": "EchoChamberMage",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 23,
+                "contentId": "comment_1022",
+                "content": "Wait, aren’t she a gaming streamer?",
+                "summary": "Wait, aren’t she a gaming streamer?",
+                "type": "Comment",
+                "time": 1792584072,
+                "poster": "MemelordMcGee",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 24,
+                "contentId": "comment_1023",
+                "content": "Yeah, but she also said she's addicted to games because ‘life feels empty, and I can't find meaning.’ Basically fell into the pit by accident.",
+                "summary": "Yeah, but she also said she's addicted to games because ‘life feels empty, and I can't find meaning.’ Basically fell into the pit by accident.",
+                "type": "Comment",
+                "time": 1792584268,
+                "poster": "EchoChamberMage",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 25,
+                "contentId": "comment_1024",
+                "content": "Then why keep streaming?",
+                "summary": "Then why keep streaming?",
+                "type": "Comment",
+                "time": 1792584484,
+                "poster": "MemelordMcGee",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 26,
+                "contentId": "comment_1025",
+                "content": "For the money, duh. Gotta scam all you pseudo-intellectuals somehow.\nShe also said single-player games are for the intellectual elite. Way above competitive gaming.\nAnd that games should be artistic, unlike you brain-dead FPS/MMO addicts.",
+                "summary": "For the money, duh. Gotta scam all you pseudo-intellectuals somehow.\nShe also said single-player games are for the intellectual elite. Way above competitive gaming.\nAnd that games should be artistic, unlike you brain-dead FPS/MMO addicts.",
+                "type": "Comment",
+                "time": 1792584720,
+                "poster": "EchoChamberMage",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 27,
+                "contentId": "comment_1026",
+                "content": "What an interesting take…",
+                "summary": "What an interesting take…",
+                "type": "Comment",
+                "time": 1792584936,
+                "poster": "MemelordMcGee",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 28,
+                "contentId": "comment_1027",
+                "content": "Heard this a million times. I’m numb now.",
+                "summary": "Heard this a million times. I’m numb now.",
+                "type": "Comment",
+                "time": 1792585172,
+                "poster": "FreeWiFi_NoVirus",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 29,
+                "contentId": "comment_1028",
+                "content": "Big-brain level discourse right here.\nSo basically, she roasted herself and her entire fanbase?",
+                "summary": "Big-brain level discourse right here.\nSo basically, she roasted herself and her entire fanbase?",
+                "type": "Comment",
+                "time": 1792585418,
+                "poster": "SuspiciouslyTallDwarf",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 30,
+                "contentId": "comment_1029",
+                "content": "Not just herself - dragged the fans into it too.",
+                "summary": "Not just herself - dragged the fans into it too.",
+                "type": "Comment",
+                "time": 1792585644,
+                "poster": "EchoChamberMage",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 31,
+                "contentId": "comment_1030",
+                "content": "Wait, people actually fall for this?\nKinda curious what kind of people follow her.",
+                "summary": "Wait, people actually fall for this?\nKinda curious what kind of people follow her.",
+                "type": "Comment",
+                "time": 1792585880,
+                "poster": "FreeWiFi_NoVirus",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 32,
+                "contentId": "comment_1031",
+                "content": "I’ll reserve judgment. \nLink’s here, y’all can see for yourselves.\nPostLink: Did anyone catch Goo’s stream today?\nCertified neckbeard.",
+                "summary": "I’ll reserve judgment. \nLink’s here, y’all can see for yourselves.\nPostLink: Did anyone catch Goo’s stream today?\nCertified neckbeard.",
+                "type": "Comment",
+                "time": 1792586136,
+                "poster": "EchoChamberMage",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 33,
+                "contentId": "comment_1032",
+                "content": "Looked into it, and yeah, her fans are definitely a certain type, but dude, you sound kinda mad too.",
+                "summary": "Looked into it, and yeah, her fans are definitely a certain type, but dude, you sound kinda mad too.",
+                "type": "Comment",
+                "time": 1792586412,
+                "poster": "SuspiciouslyTallDwarf",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 34,
+                "contentId": "comment_1033",
+                "content": "Alright, fine, I am mad. But at least I took the L for you all and brought back firsthand tea. My sacrifice balances the karma.",
+                "summary": "Alright, fine, I am mad. But at least I took the L for you all and brought back firsthand tea. My sacrifice balances the karma.",
+                "type": "Comment",
+                "time": 1792586964,
+                "poster": "EchoChamberMage",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 35,
+                "contentId": "comment_1034",
+                "content": "Respect. A true warrior.\nGone but not forgotten.",
+                "summary": "Respect. A true warrior.\nGone but not forgotten.",
+                "type": "Comment",
+                "time": 1792587240,
+                "poster": "MemelordMcGee",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 36,
+                "contentId": "comment_1035",
+                "content": "‘Ten out of ten feminists are punching enthusiasts.’",
+                "summary": "‘Ten out of ten feminists are punching enthusiasts.’",
+                "type": "Comment",
+                "time": 1792587526,
+                "poster": "CEOofNothing",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 37,
+                "contentId": "comment_1036",
+                "content": "Intellectuals are the most delusional ones, actually.\nModern ‘intellectuals’ are the least informed. The working class is the real woke gang.",
+                "summary": "Intellectuals are the most delusional ones, actually.\nModern ‘intellectuals’ are the least informed. The working class is the real woke gang.",
+                "type": "Comment",
+                "time": 1792587812,
+                "poster": "SuspiciouslyTallDwarf",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 38,
+                "contentId": "comment_1037",
+                "content": "Damn, you right. This one’s just bougie. Can’t believe I stanned her for a while. Guess I was just blind to it.",
+                "summary": "Damn, you right. This one’s just bougie. Can’t believe I stanned her for a while. Guess I was just blind to it.",
+                "type": "Comment",
+                "time": 1792588384,
+                "poster": "EchoChamberMage",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 39,
+                "contentId": "comment_1038",
+                "content": "I watched the stream and wanna clarify: she wasn’t dunking on gamers. First off, when she said 'killing time,' she was talking about herself.\nShe just warned viewers not to get too sucked into streams. And she only mentioned Caltech Uni because chat asked about her background. The ‘single-player elite’ thing? Yeah, she did say that, but the context was about storytelling in games having artistic merit.",
+                "summary": "I watched the stream and wanna clarify: she wasn’t dunking on gamers. First off, when she said 'killing time,' she was talking about herself.\nShe just warned viewers not to get too sucked into streams. And she only mentioned Caltech Uni because chat asked about her background. The ‘single-player elite’ thing? Yeah, she did say that, but the context was about storytelling in games having artistic merit.",
+                "type": "Comment",
+                "time": 1792588680,
+                "poster": "GhostedByMyISP",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 40,
+                "contentId": "comment_1039",
+                "content": "Look, another neckbeard!\nSure, she said it nicely, but come on. If you’ve got a brain, you know what she really meant.",
+                "summary": "Look, another neckbeard!\nSure, she said it nicely, but come on. If you’ve got a brain, you know what she really meant.",
+                "type": "Comment",
+                "time": 1792588966,
+                "poster": "EchoChamberMage",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 41,
+                "contentId": "comment_1040",
+                "content": "Saw a forum thread about this. A bunch of fans already know she's from X Uni.",
+                "summary": "Saw a forum thread about this. A bunch of fans already know she's from X Uni.",
+                "type": "Comment",
+                "time": 1792589538,
+                "poster": "MemelordMcGee",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 42,
+                "contentId": "comment_1041",
+                "content": "Yeah, but she doesn’t usually flex it. It’s only when chat asks.",
+                "summary": "Yeah, but she doesn’t usually flex it. It’s only when chat asks.",
+                "type": "Comment",
+                "time": 1792589824,
+                "poster": "GhostedByMyISP",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 43,
+                "contentId": "comment_1042",
+                "content": "LMAO, the whole stream yesterday started because chat asked about her school.\nI swear those chatters are paid actors.",
+                "summary": "LMAO, the whole stream yesterday started because chat asked about her school.\nI swear those chatters are paid actors.",
+                "type": "Comment",
+                "time": 1792590100,
+                "poster": "EchoChamberMage",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 44,
+                "contentId": "comment_1043",
+                "content": "Whatever, anyone with common sense can just watch the VOD and judge for themselves.",
+                "summary": "Whatever, anyone with common sense can just watch the VOD and judge for themselves.",
+                "type": "Comment",
+                "time": 1792590386,
+                "poster": "GhostedByMyISP",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 45,
+                "contentId": "comment_1044",
+                "content": "Bet the streamer will tell y’all not to watch the VOD, too.",
+                "summary": "Bet the streamer will tell y’all not to watch the VOD, too.",
+                "type": "Comment",
+                "time": 1792590672,
+                "poster": "EchoChamberMage",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 46,
+                "contentId": "comment_1045",
+                "content": "Dude, you’re sounding kinda mad again.",
+                "summary": "Dude, you’re sounding kinda mad again.",
+                "type": "Comment",
+                "time": 1792591520,
+                "poster": "SuspiciouslyTallDwarf",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 47,
+                "contentId": "comment_1046",
+                "content": "Fine. I’ll shut up. But when you watch the VOD and get hit with the reality check, don’t say we didn’t warn you.",
+                "summary": "Fine. I’ll shut up. But when you watch the VOD and get hit with the reality check, don’t say we didn’t warn you.",
+                "type": "Comment",
+                "time": 1792601112,
+                "poster": "EchoChamberMage",
+                "parentPostId": 1
+            },
+            {
+                "globalId": 49,
+                "contentId": "comment_2001",
+                "content": "What did she say?",
+                "summary": "What did she say?",
+                "type": "Comment",
+                "time": 1790296065,
+                "poster": "CryptoBro_1984",
+                "parentPostId": 48
+            },
+            {
+                "globalId": 50,
+                "contentId": "comment_2002",
+                "content": "Just the usual NEET international student existential crisis.",
+                "summary": "Just the usual NEET international student existential crisis.",
+                "type": "Comment",
+                "time": 1790296343,
+                "poster": "EchoChamberMage",
+                "parentPostId": 48
+            },
+            {
+                "globalId": 51,
+                "contentId": "comment_2003",
+                "content": "So, the same old \"MMOs are pointless, single-player is for intellectuals, games should be artistic,\" spiel?",
+                "summary": "So, the same old \"MMOs are pointless, single-player is for intellectuals, games should be artistic,\" spiel?",
+                "type": "Comment",
+                "time": 1790296537,
+                "poster": "RedditGoldDigga",
+                "parentPostId": 48
+            },
+            {
+                "globalId": 52,
+                "contentId": "comment_2004",
+                "content": "Yeah, pretty much.",
+                "summary": "Yeah, pretty much.",
+                "type": "Comment",
+                "time": 1790296845,
+                "poster": "CryptoBro_1984",
+                "parentPostId": 48
+            },
+            {
+                "globalId": 53,
+                "contentId": "comment_2005",
+                "content": "Too many FPS/MMO players out there, and watching game streams is just a waste of time.",
+                "summary": "Too many FPS/MMO players out there, and watching game streams is just a waste of time.",
+                "type": "Comment",
+                "time": 1790297092,
+                "poster": "RedditGoldDigga",
+                "parentPostId": 48
+            },
+            {
+                "globalId": 54,
+                "contentId": "comment_2006",
+                "content": "Honestly, they should’ve been wiped off the map ages ago.",
+                "summary": "Honestly, they should’ve been wiped off the map ages ago.",
+                "type": "Comment",
+                "time": 1790297287,
+                "poster": "EchoChamberMage",
+                "parentPostId": 48
+            },
+            {
+                "globalId": 55,
+                "contentId": "comment_2007",
+                "content": "???\nWait, Goo says watching streams is a waste of time? \nSeems like she's getting a little too cocky.",
+                "summary": "???\nWait, Goo says watching streams is a waste of time? \nSeems like she's getting a little too cocky.",
+                "type": "Comment",
+                "time": 1790297423,
+                "poster": "CryptoBro_1984",
+                "parentPostId": 48
+            },
+            {
+                "globalId": 56,
+                "contentId": "comment_2010",
+                "content": "I watched the stream. Classic Goo, just speaking facts..",
+                "summary": "I watched the stream. Classic Goo, just speaking facts..",
+                "type": "Comment",
+                "time": 1790297772,
+                "poster": "GamerDadVibes",
+                "parentPostId": 48
+            },
+            {
+                "globalId": 57,
+                "contentId": "comment_2011",
+                "content": "She does have a tendency to lecture people a lot when she speaks.",
+                "summary": "She does have a tendency to lecture people a lot when she speaks.",
+                "type": "Comment",
+                "time": 1790297914,
+                "poster": "EchoChamberMage",
+                "parentPostId": 48
+            },
+            {
+                "globalId": 58,
+                "contentId": "comment_2012",
+                "content": "I mean, she’s not wrong.",
+                "summary": "I mean, she’s not wrong.",
+                "type": "Comment",
+                "time": 1790298067,
+                "poster": "GamerDadVibes",
+                "parentPostId": 48
+            },
+            {
+                "globalId": 59,
+                "contentId": "comment_2013",
+                "content": "???\nLook, I’ll admit she’s got more brainwashing skills than your average female streamer,but she literally just trashed gamers to their faces, and y’all are still calling it \"facts\"? That’s some next-level bootlicking.",
+                "summary": "???\nLook, I’ll admit she’s got more brainwashing skills than your average female streamer,but she literally just trashed gamers to their faces, and y’all are still calling it \"facts\"? That’s some next-level bootlicking.",
+                "type": "Comment",
+                "time": 1790298405,
+                "poster": "EchoChamberMage",
+                "parentPostId": 48
+            },
+            {
+                "globalId": 60,
+                "contentId": "comment_2017",
+                "content": "If you feel like she’s insulting you, it’s pretty obvious what kind of person you are.",
+                "summary": "If you feel like she’s insulting you, it’s pretty obvious what kind of person you are.",
+                "type": "Comment",
+                "time": 1790298694,
+                "poster": "GamerDadVibes",
+                "parentPostId": 48
+            },
+            {
+                "globalId": 61,
+                "contentId": "comment_2018",
+                "content": "Bro, I’m literally a former pro player. She said competitive games are pointless—she’s literally calling me useless.",
+                "summary": "Bro, I’m literally a former pro player. She said competitive games are pointless—she’s literally calling me useless.",
+                "type": "Comment",
+                "time": 1790298847,
+                "poster": "EchoChamberMage",
+                "parentPostId": 48
+            },
+            {
+                "globalId": 62,
+                "contentId": "comment_2021",
+                "content": "Oh great, another \"former pro player.",
+                "summary": "Oh great, another \"former pro player.",
+                "type": "Comment",
+                "time": 1790298983,
+                "poster": "RedditGoldDigga",
+                "parentPostId": 48
+            },
+            {
+                "globalId": 63,
+                "contentId": "comment_2022",
+                "content": "What, washed out in the academy league?",
+                "summary": "What, washed out in the academy league?",
+                "type": "Comment",
+                "time": 1790299332,
+                "poster": "GamerDadVibes",
+                "parentPostId": 48
+            },
+            {
+                "globalId": 64,
+                "contentId": "comment_2023",
+                "content": "Lmao, doesn’t matter, I could still stomp both of you in a 1v1.",
+                "summary": "Lmao, doesn’t matter, I could still stomp both of you in a 1v1.",
+                "type": "Comment",
+                "time": 1790299474,
+                "poster": "EchoChamberMage",
+                "parentPostId": 48
+            },
+            {
+                "globalId": 65,
+                "contentId": "comment_2025",
+                "content": "Bro, if this is how you think, why are you even watching Goo’s stream?",
+                "summary": "Bro, if this is how you think, why are you even watching Goo’s stream?",
+                "type": "Comment",
+                "time": 1790299627,
+                "poster": "TinfoilHatApproved",
+                "parentPostId": 48
+            },
+            {
+                "globalId": 66,
+                "contentId": "comment_2029",
+                "content": "Or maybe that’s exactly what gets him going?",
+                "summary": "Or maybe that’s exactly what gets him going?",
+                "type": "Comment",
+                "time": 1790299965,
+                "poster": "GamerDadVibes",
+                "parentPostId": 48
+            },
+            {
+                "globalId": 67,
+                "contentId": "comment_2027",
+                "content": "LMAO\nShe’s the streamer, I’m the viewer. Why do I need her to respect me? \nJust watching her stream is already doing her a favor.",
+                "summary": "LMAO\nShe’s the streamer, I’m the viewer. Why do I need her to respect me? \nJust watching her stream is already doing her a favor.",
+                "type": "Comment",
+                "time": 1790300112,
+                "poster": "EchoChamberMage",
+                "parentPostId": 48
+            },
+            {
+                "globalId": 68,
+                "contentId": "comment_2032",
+                "content": "Five years in esports academy training... His brain starts to change.",
+                "summary": "Five years in esports academy training... His brain starts to change.",
+                "type": "Comment",
+                "time": 1790300407,
+                "poster": "CryptoBro_1984",
+                "parentPostId": 48
+            },
+            {
+                "globalId": 69,
+                "contentId": "comment_2033",
+                "content": "She roasted single-player fans too, btw. Y’all can keep coping.",
+                "summary": "She roasted single-player fans too, btw. Y’all can keep coping.",
+                "type": "Comment",
+                "time": 1790300745,
+                "poster": "EchoChamberMage",
+                "parentPostId": 48
+            },
+            {
+                "globalId": 70,
+                "contentId": "comment_2035",
+                "content": "Dude, it’s just a stream, not a relationship. Why are y’all making this about self-worth?",
+                "summary": "Dude, it’s just a stream, not a relationship. Why are y’all making this about self-worth?",
+                "type": "Comment",
+                "time": 1790301034,
+                "poster": "RedditGoldDigga",
+                "parentPostId": 48
+            },
+            {
+                "globalId": 71,
+                "contentId": "comment_2037",
+                "content": "Nah, this is textbook horny-brained behavior.",
+                "summary": "Nah, this is textbook horny-brained behavior.",
+                "type": "Comment",
+                "time": 1790301187,
+                "poster": "GamerDadVibes",
+                "parentPostId": 48
+            },
+            {
+                "globalId": 72,
+                "contentId": "comment_2038",
+                "content": "Oh shit, a woman entered the chat. Can’t win, I’m out.",
+                "summary": "Oh shit, a woman entered the chat. Can’t win, I’m out.",
+                "type": "Comment",
+                "time": 1790301672,
+                "poster": "EchoChamberMage",
+                "parentPostId": 48
+            },
+            {
+                "globalId": 73,
+                "contentId": "comment_2040",
+                "content": "Lmao, folded instantly at the sight of a female. Also, I’m a dude.",
+                "summary": "Lmao, folded instantly at the sight of a female. Also, I’m a dude.",
+                "type": "Comment",
+                "time": 1790302013,
+                "poster": "GamerDadVibes",
+                "parentPostId": 48
+            },
+            {
+                "globalId": 74,
+                "contentId": "comment_2042",
+                "content": "So this is what \"former esports players\" are like, huh?",
+                "summary": "So this is what \"former esports players\" are like, huh?",
+                "type": "Comment",
+                "time": 1790736682,
+                "poster": "TinfoilHatApproved",
+                "parentPostId": 48
+            },
+            {
+                "globalId": 76,
+                "contentId": "comment_3001",
+                "content": "Anyone else in the know?",
+                "summary": "Anyone else in the know?",
+                "type": "Comment",
+                "time": 1792639715,
+                "poster": "AlgorithmSacrifice",
+                "parentPostId": 75
+            },
+            {
+                "globalId": 77,
+                "contentId": "comment_3002",
+                "content": "Yo, who’s this Goo everyone’s talking about? Any links to the drama?",
+                "summary": "Yo, who’s this Goo everyone’s talking about? Any links to the drama?",
+                "type": "Comment",
+                "time": 1792640095,
+                "poster": "EmotionalSupportDuck",
+                "parentPostId": 75
+            },
+            {
+                "globalId": 78,
+                "contentId": "comment_3003",
+                "content": "PostLink: Recommend a niche streamer, Goo. For all the wellness bros out there, you're in luck.",
+                "summary": "PostLink: Recommend a niche streamer, Goo. For all the wellness bros out there, you're in luck.",
+                "type": "Comment",
+                "time": 1792640475,
+                "poster": "NightOwlNecromancer",
+                "parentPostId": 75
+            },
+            {
+                "globalId": 79,
+                "contentId": "comment_3004",
+                "content": "Bruh, I’m starting to piece this together now.",
+                "summary": "Bruh, I’m starting to piece this together now.",
+                "type": "Comment",
+                "time": 1792640855,
+                "poster": "AlgorithmSacrifice",
+                "parentPostId": 75
+            },
+            {
+                "globalId": 80,
+                "contentId": "comment_3005",
+                "content": "So the whole ‘smart, wholesome, academic streamer’ persona was just a front? \nMy queen... MY QUEEN",
+                "summary": "So the whole ‘smart, wholesome, academic streamer’ persona was just a front? \nMy queen... MY QUEEN",
+                "type": "Comment",
+                "time": 1792641235,
+                "poster": "LateStageMemer",
+                "parentPostId": 75
+            },
+            {
+                "globalId": 81,
+                "contentId": "comment_3006",
+                "content": "Same here, bro. Guess we’re both too young and naïve for these streamer games.",
+                "summary": "Same here, bro. Guess we’re both too young and naïve for these streamer games.",
+                "type": "Comment",
+                "time": 1792641615,
+                "poster": "EchoChamberMage",
+                "parentPostId": 75
+            },
+            {
+                "globalId": 82,
+                "contentId": "comment_3007",
+                "content": "LOL, it’s you, former pro player.\nBeware of the latest internet scams.",
+                "summary": "LOL, it’s you, former pro player.\nBeware of the latest internet scams.",
+                "type": "Comment",
+                "time": 1792641995,
+                "poster": "AlgorithmSacrifice",
+                "parentPostId": 75
+            },
+            {
+                "globalId": 83,
+                "contentId": "comment_3008",
+                "content": "No way, I actually donated to her once. Turns out the clown was me all along.",
+                "summary": "No way, I actually donated to her once. Turns out the clown was me all along.",
+                "type": "Comment",
+                "time": 1792642375,
+                "poster": "EchoChamberMage",
+                "parentPostId": 75
+            },
+            {
+                "globalId": 84,
+                "contentId": "comment_3009",
+                "content": "I also heard she sold her stuff after dropping out, and some buyers were pissed ‘cause the items were way worse than advertised",
+                "summary": "I also heard she sold her stuff after dropping out, and some buyers were pissed ‘cause the items were way worse than advertised",
+                "type": "Comment",
+                "time": 1792642755,
+                "poster": "InfiniteLoadingScreen",
+                "parentPostId": 75
+            },
+            {
+                "globalId": 85,
+                "contentId": "comment_3010",
+                "content": "For real, the internet really is just a bunch of fake personas, huh?",
+                "summary": "For real, the internet really is just a bunch of fake personas, huh?",
+                "type": "Comment",
+                "time": 1792643135,
+                "poster": "NightOwlNecromancer",
+                "parentPostId": 75
+            },
+            {
+                "globalId": 86,
+                "contentId": "comment_3011",
+                "content": "I actually remember her saying on stream once that she dropped out.",
+                "summary": "I actually remember her saying on stream once that she dropped out.",
+                "type": "Comment",
+                "time": 1792643515,
+                "poster": "BasementDweller69",
+                "parentPostId": 75
+            },
+            {
+                "globalId": 87,
+                "contentId": "comment_3012",
+                "content": "Yeah, but she kinda stopped mentioning it after she blew up. Guess the ‘academic genius’ brand sells better.",
+                "summary": "Yeah, but she kinda stopped mentioning it after she blew up. Guess the ‘academic genius’ brand sells better.",
+                "type": "Comment",
+                "time": 1792643895,
+                "poster": "AlgorithmSacrifice",
+                "parentPostId": 75
+            },
+            {
+                "globalId": 88,
+                "contentId": "comment_3013",
+                "content": "Wait, WHAT? I had no idea.",
+                "summary": "Wait, WHAT? I had no idea.",
+                "type": "Comment",
+                "time": 1792644275,
+                "poster": "EchoChamberMage",
+                "parentPostId": 75
+            },
+            {
+                "globalId": 89,
+                "contentId": "comment_3014",
+                "content": "Huh? Is that so? Then I didn't write very comprehensively.",
+                "summary": "Huh? Is that so? Then I didn't write very comprehensively.",
+                "type": "Comment",
+                "time": 1792644655,
+                "poster": "NPCWithSideQuests",
+                "parentPostId": 75
+            },
+            {
+                "globalId": 90,
+                "contentId": "comment_3015",
+                "content": "Honestly, understandable if you didn’t catch it—if you weren’t watching her early streams, it’s easy to miss.",
+                "summary": "Honestly, understandable if you didn’t catch it—if you weren’t watching her early streams, it’s easy to miss.",
+                "type": "Comment",
+                "time": 1792645035,
+                "poster": "EchoChamberMage",
+                "parentPostId": 75
+            },
+            {
+                "globalId": 91,
+                "contentId": "comment_3016",
+                "content": "I get why she’d want to maintain that image, though. That’s her lane in the streamer game.",
+                "summary": "I get why she’d want to maintain that image, though. That’s her lane in the streamer game.",
+                "type": "Comment",
+                "time": 1792645415,
+                "poster": "AlgorithmSacrifice",
+                "parentPostId": 75
+            },
+            {
+                "globalId": 92,
+                "contentId": "comment_3017",
+                "content": "Sure, but if she intentionally hid it, that’s lowkey scamming her fans.",
+                "summary": "Sure, but if she intentionally hid it, that’s lowkey scamming her fans.",
+                "type": "Comment",
+                "time": 1792645795,
+                "poster": "NightOwlNecromancer",
+                "parentPostId": 75
+            },
+            {
+                "globalId": 93,
+                "contentId": "comment_3018",
+                "content": "I’m not saying it’s right; I’m just saying I see why she’d do it.",
+                "summary": "I’m not saying it’s right; I’m just saying I see why she’d do it.",
+                "type": "Comment",
+                "time": 1792646175,
+                "poster": "AlgorithmSacrifice",
+                "parentPostId": 75
+            },
+            {
+                "globalId": 94,
+                "contentId": "comment_3019",
+                "content": "This right here is the ultimate master of disguise.",
+                "summary": "This right here is the ultimate master of disguise.",
+                "type": "Comment",
+                "time": 1792646555,
+                "poster": "CEOofNothing",
+                "parentPostId": 75
+            },
+            {
+                "globalId": 95,
+                "contentId": "comment_3020",
+                "content": "Apparently, she had an early big-time donor who gifted her a couple of fat stacks—like, two or three times. Shortly after that, this donor moved back to China. My guess? [L] had a sugar daddy footing the bills.",
+                "summary": "Apparently, she had an early big-time donor who gifted her a couple of fat stacks—like, two or three times. Shortly after that, this donor moved back to China. My guess? [L] had a sugar daddy footing the bills.",
+                "type": "Comment",
+                "time": 1792646935,
+                "poster": "TrustMeImAnInternetStranger",
+                "parentPostId": 75
+            },
+            {
+                "globalId": 96,
+                "contentId": "comment_3021",
+                "content": "Surprised.",
+                "summary": "Surprised.",
+                "type": "Comment",
+                "time": 1792647315,
+                "poster": "EmotionalSupportDuck",
+                "parentPostId": 75
+            },
+            {
+                "globalId": 98,
+                "contentId": "comment_4001",
+                "content": "So lucky to have seen it!",
+                "summary": "So lucky to have seen it!",
+                "type": "Comment",
+                "time": 1773103239,
+                "poster": "AbstractCrusader",
+                "parentPostId": 97
+            },
+            {
+                "globalId": 99,
+                "contentId": "comment_4002",
+                "content": "Feeling blessed!",
+                "summary": "Feeling blessed!",
+                "type": "Comment",
+                "time": 1773103525,
+                "poster": "StealthySerpent",
+                "parentPostId": 97
+            },
+            {
+                "globalId": 100,
+                "contentId": "comment_4003",
+                "content": "",
+                "summary": "",
+                "type": "Comment",
+                "time": 1773104288,
+                "poster": "",
+                "parentPostId": 97
+            },
+            {
+                "globalId": 102,
+                "contentId": "comment_5001",
+                "content": "She’s such a nerd, lol.",
+                "summary": "She’s such a nerd, lol.",
+                "type": "Comment",
+                "time": 1773626405,
+                "poster": "ShatteredNimbus",
+                "parentPostId": 101
+            },
+            {
+                "globalId": 103,
+                "contentId": "comment_5002",
+                "content": "Been watching her for years now.",
+                "summary": "Been watching her for years now.",
+                "type": "Comment",
+                "time": 1773632531,
+                "poster": "StealthWombat",
+                "parentPostId": 101
+            },
+            {
+                "globalId": 104,
+                "contentId": "comment_5003",
+                "content": "Totally. She’s like a breath of fresh air in the streaming world.",
+                "summary": "Totally. She’s like a breath of fresh air in the streaming world.",
+                "type": "Comment",
+                "time": 1773633118,
+                "poster": "FlickerNimbus",
+                "parentPostId": 101
+            },
+            {
+                "globalId": 105,
+                "contentId": "comment_5004",
+                "content": "She’s actually my senior at Caltech Uni!",
+                "summary": "She’s actually my senior at Caltech Uni!",
+                "type": "Comment",
+                "time": 1773632528,
+                "poster": "SpaceAlchemist",
+                "parentPostId": 101
+            },
+            {
+                "globalId": 106,
+                "contentId": "comment_5005",
+                "content": "If you’re a fan of Goo, we’re automatically friends!",
+                "summary": "If you’re a fan of Goo, we’re automatically friends!",
+                "type": "Comment",
+                "time": 1773634531,
+                "poster": "FrostyTempest",
+                "parentPostId": 101
+            },
+            {
+                "globalId": 107,
+                "contentId": "comment_5006",
+                "content": "Tried the game myself and realized her skills are legit next-level.",
+                "summary": "Tried the game myself and realized her skills are legit next-level.",
+                "type": "Comment",
+                "time": 1773636131,
+                "poster": "LiquidAbyss",
+                "parentPostId": 101
+            },
+            {
+                "globalId": 108,
+                "contentId": "comment_5007",
+                "content": "",
+                "summary": "",
+                "type": "Comment",
+                "time": 1773636935,
+                "poster": "",
+                "parentPostId": 101
+            },
+            {
+                "globalId": 110,
+                "contentId": "comment_6001",
+                "content": "So beautiful.",
+                "summary": "So beautiful.",
+                "type": "Comment",
+                "time": 1775752351,
+                "poster": "NotClickbaitIRL",
+                "parentPostId": 109
+            },
+            {
+                "globalId": 111,
+                "contentId": "comment_6002",
+                "content": "",
+                "summary": "",
+                "type": "Comment",
+                "time": 1775753702,
+                "poster": "",
+                "parentPostId": 109
+            },
+            {
+                "globalId": 113,
+                "contentId": "comment_7001",
+                "content": "Same, camping for it. Anyone who saw it, spill!",
+                "summary": "Same, camping for it. Anyone who saw it, spill!",
+                "type": "Comment",
+                "time": 1792646655,
+                "poster": "404HumorNotFound",
+                "parentPostId": 112
+            },
+            {
+                "globalId": 114,
+                "contentId": "comment_7002",
+                "content": "She’s trending right now, she probably doesn’t dare post it.",
+                "summary": "She’s trending right now, she probably doesn’t dare post it.",
+                "type": "Comment",
+                "time": 1792647731,
+                "poster": "CEOofNothing",
+                "parentPostId": 112
+            },
+            {
+                "globalId": 115,
+                "contentId": "comment_7003",
+                "content": "Oops, did the 'security cam' break again?",
+                "summary": "Oops, did the 'security cam' break again?",
+                "type": "Comment",
+                "time": 1792651545,
+                "poster": "EchoChamberMage",
+                "parentPostId": 112
+            },
+            {
+                "globalId": 116,
+                "contentId": "comment_7004",
+                "content": "No replay? Guilty conscience vibes.",
+                "summary": "No replay? Guilty conscience vibes.",
+                "type": "Comment",
+                "time": 1792653183,
+                "poster": "PermaBannedTwice",
+                "parentPostId": 112
+            },
+            {
+                "globalId": 117,
+                "contentId": "comment_7005",
+                "content": "",
+                "summary": "",
+                "type": "Comment",
+                "time": 1792654387,
+                "poster": "",
+                "parentPostId": 112
+            },
+            {
+                "globalId": 119,
+                "contentId": "comment_8001",
+                "content": "You literally just click on the trending tag.",
+                "summary": "You literally just click on the trending tag.",
+                "type": "Comment",
+                "time": 1792729515,
+                "poster": "KeyboardWarlock",
+                "parentPostId": 118
+            },
+            {
+                "globalId": 120,
+                "contentId": "comment_8002",
+                "content": "PostLink: Goo’s backstory in Caltech",
+                "summary": "PostLink: Goo’s backstory in Caltech",
+                "type": "Comment",
+                "time": 1792731964,
+                "poster": "NPCWithSideQuests",
+                "parentPostId": 118
+            }
+        ]
         
 
     }

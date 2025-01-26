@@ -179,30 +179,6 @@ public class MindBubble : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // if (!isMouseReleased) return;
-        
-        // if (dragToMiddleCollider.bounds.Intersects(other.bounds) &&
-        //     other.CompareTag("MergeCollider"))
-        // {
-        //     if (MindBubbleManager.Instance.isMerge) return; 
-        //
-        //     BubbleData bubbleDataOther = other.transform.parent?.GetComponent<MindBubble>().bubbleData;
-        //
-        //     if (!MindBubbleManager.Instance.CanMerge(bubbleData, bubbleDataOther)) return;
-        //
-        //     MindBubbleManager.Instance.isMerge = true; 
-        //
-        //     MergeBubbles(bubbleData.Size + bubbleDataOther.Size,
-        //                     bubbleData.Id + bubbleDataOther.Id);
-        //     
-        //     StartCoroutine(MindBubbleManager.Instance.ResetMergeState());
-        //     
-        //     Destroy(other.transform.parent.gameObject);
-        //     Destroy(this.gameObject);
-        //     
-        //     return;
-        // }
-
         Vector2 direction = (transform.position - other.transform.position).normalized;
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();

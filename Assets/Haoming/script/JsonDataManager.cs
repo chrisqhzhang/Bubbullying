@@ -16,18 +16,12 @@ public class JsonDataManager : Singleton<JsonDataManager>
 
     public void LoadFromJson()
     {
-        string bubbleDataPath = Application.dataPath + "/Assets_Anthea/Resources/BubbleDataFile.json";
-        string mergeBubbleDataPath = Application.dataPath + "/Assets_Anthea/Resources/MergeBubbles.json";
+        TextAsset bubbleDataTextAsset = Resources.Load<TextAsset>("BubbleDataFile");
+        TextAsset mergeBubbleDataTextAsset = Resources.Load<TextAsset>("MergeBubbles");
+        
+        MindBubbleManager.Instance.PossibleMergeBubbles = JsonUtility.FromJson<MergeBubbles>(mergeBubbleDataTextAsset.text).mergeBubbles;
+        bubbleAppData = JsonUtility.FromJson<BubbleAppData>(bubbleDataTextAsset.text);
 
-        if (!File.Exists(bubbleDataPath))
-        {
-            Debug.LogError("JSON file not found at " + bubbleDataPath);
-            return;
-        }
-        
-        MindBubbleManager.Instance.PossibleMergeBubbles = JsonUtility.FromJson<MergeBubbles>(File.ReadAllText(mergeBubbleDataPath)).mergeBubbles;
-        bubbleAppData = JsonUtility.FromJson<BubbleAppData>(File.ReadAllText(bubbleDataPath));
-        
         ParsePostAndComment();
         ParseMergeRecipes();
     }

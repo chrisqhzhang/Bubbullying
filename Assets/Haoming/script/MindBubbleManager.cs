@@ -24,7 +24,7 @@ public class MindBubbleManager : Singleton<MindBubbleManager>
     [SerializeField] private AudioClip bubbleMergeSound;
     [SerializeField] private AudioClip bubbleCollideSound;
     
-    private float displayOffsetX = 2.2f;
+    private float displayOffsetX = 3f;
     private float displayOffsetY = 4f;
     
     public readonly object lockObject = new object();
@@ -58,8 +58,8 @@ public class MindBubbleManager : Singleton<MindBubbleManager>
         GameObject newBubbleObject = Instantiate(Resources.Load("Bubble1"), bubblePage.transform) as GameObject;
         MindBubble newBubble = newBubbleObject.GetComponent<MindBubble>();
 
-        newBubbleObject.transform.position =  new UnityEngine.Vector2(startTransform.position.x + displayOffsetX * (GetBubbleCount() % 10),
-            startTransform.position.y - displayOffsetY * (GetBubbleCount() / 10));
+        newBubbleObject.transform.position =  new UnityEngine.Vector2(startTransform.position.x + displayOffsetX * (GetBubbleCount() % 8),
+            startTransform.position.y - displayOffsetY * (GetBubbleCount() / 8));
         
         newBubble.ConstructMindBubble(bubbleData);
         

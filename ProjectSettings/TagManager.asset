@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Capturable
+  - MergeCollider
+  - CollisionCollider
   layers:
   - Default
   - TransparentFX

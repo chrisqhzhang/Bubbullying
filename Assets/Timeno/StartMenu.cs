@@ -15,4 +15,19 @@ public class StartMenu : MonoBehaviour
         Debug.Log("Quit");
         Application.Quit();
     }
+
+    public void LaunchBubble()
+    {
+        SceneManager.LoadScene("BubbleApp");
+    }
+
+    public void LaunchAnima()
+    {
+        SceneManager.LoadScene("Animasphere");
+    }
+
+    public void BackToRoom()
+    {
+        SceneManager.LoadScene("In-Game");
+    }
 }

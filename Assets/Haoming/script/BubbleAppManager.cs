@@ -17,6 +17,7 @@ public class BubbleAppManager : Singleton<BubbleAppManager>
     public Transform detailContent;
     public GameObject postPrefab;
     [SerializeField] private float pageHeightOffset;
+    [SerializeField] private float detailPageHeightOffset;
     [SerializeField] private float verticalOffset;
     [SerializeField] private float horizontalOffset;
     
@@ -119,8 +120,8 @@ public class BubbleAppManager : Singleton<BubbleAppManager>
     {
         int count = 0;
             
-        Rect rectLocal = detailContent.GetComponent<RectTransform>().rect;
-        rectLocal.height += commentCounts[postData.globalId] * verticalOffset + pageHeightOffset;
+        RectTransform rectTransform = detailContent.GetComponent<RectTransform>();
+        rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x, commentCounts[postData.globalId] * ( commentPrefab.GetComponent<RectTransform>().rect.height) + detailPageHeightOffset);
 
         UnityEngine.Debug.Log($"Checking comments for post with globalId: {postData.globalId}");
 

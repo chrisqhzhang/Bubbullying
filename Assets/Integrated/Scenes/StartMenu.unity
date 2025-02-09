@@ -1409,7 +1409,19 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2007034526}
+        m_TargetAssemblyTypeName: SettingMenu, Assembly-CSharp
+        m_MethodName: SetMusicVolume
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &514321384
 GameObject:
   m_ObjectHideFlags: 0
@@ -1882,7 +1894,19 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2007034526}
+        m_TargetAssemblyTypeName: SettingMenu, Assembly-CSharp
+        m_MethodName: SetSFXVolume
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1037053171
 GameObject:
   m_ObjectHideFlags: 0
@@ -4052,6 +4076,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2007034524}
   - component: {fileID: 2007034525}
+  - component: {fileID: 2007034526}
   m_Layer: 5
   m_Name: StartMenu
   m_TagString: Untagged
@@ -4096,7 +4121,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bubbleApp: {fileID: 0}
   animaApp: {fileID: 0}
-  bubbleAppManager: {fileID: 0}
+  animaAppBkg: {fileID: 0}
+  homePage: {fileID: 0}
+--- !u!114 &2007034526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007034523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87ab4caf048b96042be3861a7dfbc898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: ad29d8a36997f534ea63c4439eb70e28, type: 2}
+  musicSlider: {fileID: 507719959}
+  sfxSlider: {fileID: 931455594}
 --- !u!1 &2067537918
 GameObject:
   m_ObjectHideFlags: 0

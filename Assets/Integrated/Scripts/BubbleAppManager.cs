@@ -47,7 +47,7 @@ public class BubbleAppManager : Singleton<BubbleAppManager>
         //}
     }
 
-    public void InitializeBubble()
+    public void InitializeBubbleApp()
     {
         mainPage.SetActive(true);
         LoadPosts();

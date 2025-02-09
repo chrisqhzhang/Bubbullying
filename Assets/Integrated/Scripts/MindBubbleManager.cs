@@ -92,7 +92,7 @@ public class MindBubbleManager : Singleton<MindBubbleManager>
         bubblePageBkg.SetActive(false);
         bubblePage.SetActive(false);
         //mainPage.SetActive(true);
-        //homePage.SetActive(true);
+        homePage.SetActive(true);
         audioSource.Stop();
     }
 

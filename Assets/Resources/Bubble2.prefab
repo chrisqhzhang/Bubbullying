@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 528340504194823170}
   - component: {fileID: 2088863829817852027}
   - component: {fileID: 3447945890012560089}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bubble2
   m_TagString: CollisionCollider
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 46188701930949376}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.32, y: 0.05, z: 0}
+  m_LocalPosition: {x: 7.32, y: 0.05, z: 0.01}
   m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -95,7 +95,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d367966839d09534cac66bec2d27a47c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 45a83c5ad47315a40b413cf45bf05626, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5486110035558536302}
   - component: {fileID: 2643522494016690913}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MergeCollider
   m_TagString: MergeCollider
   m_Icon: {fileID: 0}
@@ -246,7 +246,7 @@ GameObject:
   - component: {fileID: 7531931787489333877}
   - component: {fileID: 9119488856301634328}
   - component: {fileID: 7657912898989653490}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -292,7 +292,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: -3592034389047480646, guid: 0de4434d8e79f374395ff9d8bf9ebdd7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -337,8 +337,8 @@ MonoBehaviour:
   m_text: Text in small bubbleText in small bubbleText in small bubbleText in small
     bubbleText in small bubbleText in small bubbleText in small bub
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0de4434d8e79f374395ff9d8bf9ebdd7, type: 2}
+  m_sharedMaterial: {fileID: -3592034389047480646, guid: 0de4434d8e79f374395ff9d8bf9ebdd7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -349,10 +349,10 @@ MonoBehaviour:
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topLeft: {r: 0, g: 0, b: 0, a: 1}
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 0, g: 0, b: 0, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
@@ -398,7 +398,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 4.123942, y: 1.5742939, z: 4.090082, w: 1.8052807}
+  m_margin: {x: 4.123942, y: 1.5742939, z: 4.139378, w: 1.8710084}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0

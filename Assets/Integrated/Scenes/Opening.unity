@@ -1331,7 +1331,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f9d74073b5075a4b90b4e93ab763b1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startButton: {fileID: 1629575608}
+  bubbleApp: {fileID: 0}
+  animaApp: {fileID: 0}
+  bubbleAppManager: {fileID: 0}
 --- !u!4 &1151590659
 Transform:
   m_ObjectHideFlags: 0
@@ -1754,7 +1756,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1151590658}
         m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
-        m_MethodName: BackToRoom
+        m_MethodName: LoadGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

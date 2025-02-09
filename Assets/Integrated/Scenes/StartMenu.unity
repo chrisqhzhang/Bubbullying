@@ -263,8 +263,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4278788649
+  m_fontColor: {r: 0.16078432, g: 0.13333334, b: 0.03529412, a: 1}
   m_enableVertexGradient: 1
   m_colorMode: 3
   m_fontColorGradient:
@@ -472,8 +472,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4278788649
+  m_fontColor: {r: 0.16078432, g: 0.13333334, b: 0.03529412, a: 1}
   m_enableVertexGradient: 1
   m_colorMode: 3
   m_fontColorGradient:
@@ -2266,8 +2266,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4278788649
+  m_fontColor: {r: 0.16078432, g: 0.13333334, b: 0.03529412, a: 1}
   m_enableVertexGradient: 1
   m_colorMode: 3
   m_fontColorGradient:
@@ -2719,8 +2719,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4278788649
+  m_fontColor: {r: 0.16078432, g: 0.13333334, b: 0.03529412, a: 1}
   m_enableVertexGradient: 1
   m_colorMode: 3
   m_fontColorGradient:
@@ -3571,8 +3571,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4278788649
+  m_fontColor: {r: 0.16078432, g: 0.13333334, b: 0.03529412, a: 1}
   m_enableVertexGradient: 1
   m_colorMode: 3
   m_fontColorGradient:
@@ -4094,6 +4094,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f9d74073b5075a4b90b4e93ab763b1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bubbleApp: {fileID: 0}
+  animaApp: {fileID: 0}
+  bubbleAppManager: {fileID: 0}
 --- !u!1 &2067537918
 GameObject:
   m_ObjectHideFlags: 0

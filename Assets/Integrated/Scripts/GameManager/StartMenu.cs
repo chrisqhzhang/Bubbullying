@@ -8,26 +8,47 @@ public class StartMenu : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] private GameObject bubbleApp;
     [SerializeField] private GameObject animaApp;
+    [SerializeField] private GameObject animaAppBkg;
+    [SerializeField] private GameObject homePage;
+
+    // public BubbleAppManager bubbleAppManager;
 
     public void StartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(1);
     }
     public void QuitGame()
     {
         Debug.Log("Quit");
         Application.Quit();
     }
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void LoadGame()
+    {
+        SceneManager.LoadScene(2);
+        homePage.SetActive(true);
+        bubbleApp.SetActive(false);
+        animaApp.SetActive(false);
+        animaAppBkg.SetActive(false);
+    }
 
     public void LaunchBubble()
     {
         //SceneManager.LoadScene("BubbleApp");
         bubbleApp.SetActive(true);
+        homePage.SetActive(false);
+        animaApp.SetActive(false);
+        animaAppBkg.SetActive(false);
+        BubbleAppManager.Instance.InitializeBubble();
     }
 
     public void CloseBubble()
     {
-        //SceneManager.LoadScene("In-Game");
+        //SceneManager.LoadScene(2);
 
         //GameObject bubbleApp = GameObject.Find("BubbleApp");
         //if (bubbleApp != null)
@@ -35,5 +56,6 @@ public class StartMenu : MonoBehaviour
         //    bubbleApp.SetActive(false);
         //}
         bubbleApp.SetActive(false);
+        homePage.SetActive(true);
     }
 }

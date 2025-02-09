@@ -17,7 +17,9 @@ public class MindBubbleManager : Singleton<MindBubbleManager>
     
     [SerializeField] private GameObject mainPage;
     [SerializeField] private GameObject bubblePage;
-    
+    [SerializeField] private GameObject bubblePageBkg;
+    [SerializeField] private GameObject homePage;
+
     public Transform startTransform;
      
     private AudioSource audioSource;
@@ -34,16 +36,6 @@ public class MindBubbleManager : Singleton<MindBubbleManager>
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        DontDestroyOnLoad (this.gameObject);
-
-        GameObject[] objs = GameObject.FindGameObjectsWithTag("DontDestroy");
-        foreach (GameObject obj in objs)
-        {
-            if (obj != null)
-            {
-                DontDestroyOnLoad(obj);
-            }
-        }
     }
 
     public bool IsCaptured(BigInteger Id)
@@ -88,15 +80,19 @@ public class MindBubbleManager : Singleton<MindBubbleManager>
 
     public void ToggleBubblePageOn()
     {
+        bubblePageBkg.SetActive(true);
         bubblePage.SetActive(true);
         mainPage.SetActive(false);
+        homePage.SetActive(false);
         EnmergeNewBubbles();
     }
     
     public void ToggleBubblePageOff()
     {
+        bubblePageBkg.SetActive(false);
         bubblePage.SetActive(false);
-        mainPage.SetActive(true);
+        //mainPage.SetActive(true);
+        //homePage.SetActive(true);
         audioSource.Stop();
     }
 

@@ -7,6 +7,8 @@ TagManager:
   - Audio
   - Capturable
   - DontDestroy
+  - CollisionCollider
+  - MergeCollider
   layers:
   - Default
   - TransparentFX

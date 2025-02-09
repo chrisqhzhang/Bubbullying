@@ -20,7 +20,7 @@ public class BubbleAppManager : Singleton<BubbleAppManager>
     [SerializeField] private float detailPageHeightOffset;
     [SerializeField] private float verticalOffset;
     [SerializeField] private float horizontalOffset;
-    
+
     [SerializeField] private GameObject detailPage;
     [SerializeField] private GameObject mainPage;
     [SerializeField] private Transform commentContent;
@@ -38,6 +38,18 @@ public class BubbleAppManager : Singleton<BubbleAppManager>
     // TODO, only return past posts
     private void Start()
     {
+        //LoadPosts();
+        //detailPage.SetActive(false);
+        //postVerticalHeight = postPrefab.transform.GetChild(0).GetComponent<RectTransform>().rect.height;
+        //foreach (var entry in commentCounts)
+        //{
+        //    UnityEngine.Debug.Log($"Post globalId: {entry.Key}, Comment count: {entry.Value}");
+        //}
+    }
+
+    public void InitializeBubble()
+    {
+        mainPage.SetActive(true);
         LoadPosts();
         detailPage.SetActive(false);
         postVerticalHeight = postPrefab.transform.GetChild(0).GetComponent<RectTransform>().rect.height;

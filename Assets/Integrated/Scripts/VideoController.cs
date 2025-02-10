@@ -25,10 +25,4 @@ public class VideoController : MonoBehaviour
     {
         videoPlayer.loopPointReached += EndReached;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }

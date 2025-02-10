@@ -4,7 +4,6 @@ using UnityEngine;
 using System;
 using System.Numerics;
 
-
 public class JsonDataManager : Singleton<JsonDataManager>
 {
     public BubbleAppData bubbleAppData;
@@ -16,14 +15,43 @@ public class JsonDataManager : Singleton<JsonDataManager>
 
     public void LoadFromJson()
     {
-        TextAsset bubbleDataTextAsset = Resources.Load<TextAsset>("BubbleDataFile");
-        TextAsset mergeBubbleDataTextAsset = Resources.Load<TextAsset>("MergeBubbles");
         
-        MindBubbleManager.Instance.PossibleMergeBubbles = JsonUtility.FromJson<MergeBubbles>(mergeBubbleDataTextAsset.text).mergeBubbles;
-        bubbleAppData = JsonUtility.FromJson<BubbleAppData>(bubbleDataTextAsset.text);
-
+        // TextAsset bubbleDataTextAsset = Resources.Load<TextAsset>("Data/BubbleDataFile");
+        // Debug.Log(bubbleDataTextAsset);
+        // TextAsset mergeBubbleDataTextAsset = Resources.Load<TextAsset>("Data/MergeBubbles");
+        // Debug.Log(mergeBubbleDataTextAsset);
+        //
+        // MindBubbleManager.Instance.PossibleMergeBubbles =
+        //     JsonUtility.FromJson<MergeBubbles>(mergeBubbleDataTextAsset.text).mergeBubbles;
+        // bubbleAppData = JsonUtility.FromJson<BubbleAppData>(bubbleDataTextAsset.text);
+        
+        string socialDataFile = "BubbleDataFile.json";
+        string mergeDataFile = "MergeBubbles.json";
+        
+        //var socialFilePath = GetFilePath(socialDataFile);
+        var socialFilePath = Application.dataPath + "/StreamingAssets/BubbleDataFile.json";
+        var socialDataText = File.ReadAllText(socialFilePath);
+        
+        //var mergeFilePath = GetFilePath(mergeDataFile);
+        var mergeFilePath = Application.dataPath + "/StreamingAssets/MergeBubbles.json";
+        var mergeDataText = File.ReadAllText(mergeFilePath);
+        
+        Debug.Log($"Trying to read file {socialFilePath} & {mergeFilePath}");
+        
+        MindBubbleManager.Instance.PossibleMergeBubbles =
+            JsonUtility.FromJson<MergeBubbles>(mergeDataText).mergeBubbles;
+        
+        bubbleAppData = JsonUtility.FromJson<BubbleAppData>(socialDataText);
+        
         ParsePostAndComment();
         ParseMergeRecipes();
+        
+    }
+    
+    private string GetFilePath(string fileName)
+    {
+        string dataFolder = Application.streamingAssetsPath;
+        return Path.Combine(dataFolder, fileName);
     }
 
     public List<PostData> GetPosts()

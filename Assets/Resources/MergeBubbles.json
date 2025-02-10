@@ -1,0 +1,167 @@
+﻿{
+   "mergeBubbles":[
+      {
+         "Ids":[
+            7,
+            11,
+            41
+         ],
+         "Description":"Goo is a very knowledgeable anchor",
+         "Size":2
+      },
+      {
+         "Ids":[
+            39,
+            58,
+            91
+         ],
+         "Description":"Goo's audience tends to defend her",
+         "Size":2
+      },
+      {
+         "Ids":[
+            51,
+            53,
+            61
+         ],
+         "Description":"Goo recognizes the game contempt chain",
+         "Size":2
+      },
+      {
+         "Ids":[
+            22,
+            24,
+            26,
+            39
+         ],
+         "Description":"Goo will lecture the audience",
+         "Size":2
+      },
+      {
+         "Ids":[
+            22,
+            24
+         ],
+         "Description":"Goo doesn't really like playing games",
+         "Size":2
+      },
+      {
+         "Ids":[
+            75,
+            86
+         ],
+         "Description":"Goo did not graduate successfully",
+         "Size":2
+      },
+      {
+         "Ids":[
+            11,
+            41,
+            43
+         ],
+         "Description":"Goo's study abroad experience is a signboard",
+         "Size":2
+      },
+      {
+         "Ids":[
+            75
+         ],
+         "Description":"Goo's final years of study were wasted",
+         "Size":2
+      },
+      {
+         "Ids":[
+            75,
+            95
+         ],
+         "Description":"Goo's emotional life is in turmoil",
+         "Size":2
+      },
+      {
+         "Ids":[
+            75
+         ],
+         "Description":"Goo is at odds with his parents",
+         "Size":2
+      },
+      {
+         "Ids":[
+            95
+         ],
+         "Description":"Goo has a large sponsor",
+         "Size":2
+      },
+      {
+         "Ids":[
+            10001,
+            10004,
+            10008
+         ],
+         "Description":"Goo has a sense of superiority over gamers in terms of knowledge",
+         "Size":3
+      },
+      {
+         "Ids":[
+            10003,
+            10004,
+            10005
+         ],
+         "Description":"Goo has a sense of superiority over gamers in terms of taste",
+         "Size":3
+      },
+      {
+         "Ids":[
+            10002,
+            10004,
+            10007,
+            10005,
+            10003
+         ],
+         "Description":"Goo is deceiving the audience",
+         "Size":3
+      },
+      {
+         "Ids":[
+            10005,
+            10009
+         ],
+         "Description":"Goo's game live streaming is just a stopgap measure",
+         "Size":3
+      },
+      {
+         "Ids":[
+            10003,
+            10005,
+            10008,
+            10012
+         ],
+         "Description":"Goo's game live streaming is just a means of making money",
+         "Size":3
+      },
+      {
+         "Ids":[
+            10008,
+            10009,
+            10002
+         ],
+         "Description":"Goo deliberately concealed the fact that he took a leave of absence",
+         "Size":3
+      },
+      {
+         "Ids":[
+            10012,
+            10011
+         ],
+         "Description":"Goo's source of funds is not normal",
+         "Size":3
+      },
+      {
+         "Ids":[
+            10012,
+            10010
+         ],
+         "Description":"Goo is supported by a sponsor",
+         "Size":3
+      }
+   ]
+}

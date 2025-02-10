@@ -16,6 +16,7 @@ public class PostObject : CapturableObject
 
     public void ShowDetail()
     {
+        //UnityEngine.Debug.Log($"postData {postData}");
         BubbleAppManager.Instance.ShowDetail(postData);
     }
     

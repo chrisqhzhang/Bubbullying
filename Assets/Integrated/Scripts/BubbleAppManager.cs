@@ -1,5 +1,3 @@
-﻿using System;
-using System.Diagnostics;
 using System.IO;
 using TMPro;
 using UnityEngine;
@@ -9,6 +7,7 @@ using Vector3 = System.Numerics.Vector3;
 using System.Collections.Generic;
 using System.Numerics;
 using Vector2 = UnityEngine.Vector2;
+
 
 
 public class BubbleAppManager : Singleton<BubbleAppManager>
@@ -55,7 +54,7 @@ public class BubbleAppManager : Singleton<BubbleAppManager>
         postVerticalHeight = postPrefab.transform.GetChild(0).GetComponent<RectTransform>().rect.height;
         foreach (var entry in commentCounts)
         {
-            UnityEngine.Debug.Log($"Post globalId: {entry.Key}, Comment count: {entry.Value}");
+            Debug.Log($"Post globalId: {entry.Key}, Comment count: {entry.Value}");
         }
     }
 
@@ -65,6 +64,7 @@ public class BubbleAppManager : Singleton<BubbleAppManager>
         
         foreach (PostData post in JsonDataManager.Instance.GetPosts())
         {
+            //Debug.Log($"post:{post.content}");
             GameObject postObj = Instantiate(postPrefab, postContent);
             
             postObj.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = post.title;

@@ -2,6 +2,7 @@
 using System.IO;
 using UnityEngine;
 using System;
+using System.Threading.Tasks;
 using System.Numerics;
 
 public class JsonDataManager : Singleton<JsonDataManager>
@@ -13,39 +14,39 @@ public class JsonDataManager : Singleton<JsonDataManager>
         LoadFromJson();
     }
 
-    public void LoadFromJson()
+  public async Task LoadFromJson()
     {
-        
-        // TextAsset bubbleDataTextAsset = Resources.Load<TextAsset>("Data/BubbleDataFile");
-        // Debug.Log(bubbleDataTextAsset);
-        // TextAsset mergeBubbleDataTextAsset = Resources.Load<TextAsset>("Data/MergeBubbles");
-        // Debug.Log(mergeBubbleDataTextAsset);
-        //
-        // MindBubbleManager.Instance.PossibleMergeBubbles =
-        //     JsonUtility.FromJson<MergeBubbles>(mergeBubbleDataTextAsset.text).mergeBubbles;
-        // bubbleAppData = JsonUtility.FromJson<BubbleAppData>(bubbleDataTextAsset.text);
-        
         string socialDataFile = "BubbleDataFile.json";
         string mergeDataFile = "MergeBubbles.json";
-        
-        //var socialFilePath = GetFilePath(socialDataFile);
-        var socialFilePath = Application.dataPath + "/StreamingAssets/BubbleDataFile.json";
-        var socialDataText = File.ReadAllText(socialFilePath);
-        
-        //var mergeFilePath = GetFilePath(mergeDataFile);
-        var mergeFilePath = Application.dataPath + "/StreamingAssets/MergeBubbles.json";
-        var mergeDataText = File.ReadAllText(mergeFilePath);
-        
+
+        string socialFilePath = Path.Combine(Application.streamingAssetsPath, socialDataFile);
+        string mergeFilePath = Path.Combine(Application.streamingAssetsPath, mergeDataFile);
+
         Debug.Log($"Trying to read file {socialFilePath} & {mergeFilePath}");
-        
-        MindBubbleManager.Instance.PossibleMergeBubbles =
-            JsonUtility.FromJson<MergeBubbles>(mergeDataText).mergeBubbles;
-        
-        bubbleAppData = JsonUtility.FromJson<BubbleAppData>(socialDataText);
-        
-        ParsePostAndComment();
-        ParseMergeRecipes();
-        
+
+        try
+        {
+            Task<string> socialDataTask = File.ReadAllTextAsync(socialFilePath);
+            Task<string> mergeDataTask = File.ReadAllTextAsync(mergeFilePath);
+
+            string[] results = await Task.WhenAll(socialDataTask, mergeDataTask);
+            string socialDataText = results[0];
+            string mergeDataText = results[1];
+
+            MindBubbleManager.Instance.PossibleMergeBubbles =
+                JsonUtility.FromJson<MergeBubbles>(mergeDataText).mergeBubbles;
+
+            bubbleAppData = JsonUtility.FromJson<BubbleAppData>(socialDataText);
+
+            ParsePostAndComment();
+            ParseMergeRecipes();
+
+            Debug.Log("JsonDataMgr LoadFromJson loaded");
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError($"Fail: {ex.Message}");
+        }
     }
     
     private string GetFilePath(string fileName)

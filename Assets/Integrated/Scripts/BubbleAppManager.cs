@@ -74,10 +74,11 @@ public class BubbleAppManager : Singleton<BubbleAppManager>
             postObj.transform.GetChild(5).GetComponent<TextMeshProUGUI>().text = post.poster;
 
             postObj.GetComponent<PostObject>().ConstructPostData(post);
-            
+                        
             Vector2 positionTemp = postPrefab.transform.position;
-            postObj.transform.position = new Vector2( positionTemp.x + horizontalOffset * (postCount % 3), 
-                                                        positionTemp.y - verticalOffset * ( postCount / 3 ) );
+            postObj.transform.position = new Vector2(positionTemp.x + (horizontalOffset * (postCount % 3)/* * (Screen.currentResolution.width / 1920)*/),
+                                                        positionTemp.y - (verticalOffset * (postCount / 3)/* * (Screen.currentResolution.height / 1080)*/));
+            //Debug.Log(Screen.currentResolution);
             postObj.SetActive(true);
             
             postCount++;
@@ -89,7 +90,7 @@ public class BubbleAppManager : Singleton<BubbleAppManager>
     private void SetContentHeight()
     {
         Rect rectTemp = postContent.GetComponent<RectTransform>().rect;
-        rectTemp.height = postCount * (postVerticalHeight + verticalOffset) + pageHeightOffset;
+        rectTemp.height = postCount * (postVerticalHeight + (verticalOffset/* * Screen.currentResolution.height / 1080)*/) + pageHeightOffset);
     }
     
     private string FormatTime(string timestamp)

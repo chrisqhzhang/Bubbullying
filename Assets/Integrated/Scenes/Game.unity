@@ -4076,7 +4076,7 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 705852151}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.377464}
+  m_AnchorMin: {x: 0, y: 0.37833333}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -4597,13 +4597,13 @@ MonoBehaviour:
   postPrefab: {fileID: 605148924}
   pageHeightOffset: 200
   detailPageHeightOffset: 0
-  verticalOffset: 278
-  horizontalOffset: 263
+  verticalOffset: 580
+  horizontalOffset: 550
   detailPage: {fileID: 837886361}
   mainPage: {fileID: 821184286}
   commentContent: {fileID: 1557830342}
   commentPrefab: {fileID: 1557830341}
-  commentVerticalOffset: 100
+  commentVerticalOffset: 200
 --- !u!4 &1054018796
 Transform:
   m_ObjectHideFlags: 0
@@ -6655,7 +6655,7 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2049869547}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.44779903}
+  m_AnchorMin: {x: 0, y: 0.448125}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -7192,7 +7192,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 923073685}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.622536
+  m_Size: 0.62166667
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -8587,7 +8587,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1523822597}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.552201
+  m_Size: 0.551875
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

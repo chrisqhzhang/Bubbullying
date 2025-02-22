@@ -43,7 +43,6 @@ public class StartMenu : MonoBehaviour
         homePage.SetActive(false);
         animaApp.SetActive(false);
         animaAppBkg.SetActive(false);
-        BubbleAppManager.Instance.InitializeBubbleApp();
     }
 
     public void CloseBubble()

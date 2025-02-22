@@ -8,13 +8,7 @@ using System.Numerics;
 public class JsonDataManager : Singleton<JsonDataManager>
 {
     public BubbleAppData bubbleAppData;
-    
-    void OnEnable()
-    {
-        LoadFromJson();
-    }
-
-  public async Task LoadFromJson()
+    public async Task LoadFromJson()
     {
         string socialDataFile = "BubbleDataFile.json";
         string mergeDataFile = "MergeBubbles.json";

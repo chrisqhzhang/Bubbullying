@@ -14,6 +14,7 @@ public class BubbleAppManager : Singleton<BubbleAppManager>
 {
     public Transform postContent;
     public Transform detailContent;
+    public Transform commentsParent;
     public GameObject postPrefab;
     [SerializeField] private float pageHeightOffset;
     [SerializeField] private float detailPageHeightOffset;
@@ -32,33 +33,24 @@ public class BubbleAppManager : Singleton<BubbleAppManager>
     public Dictionary<BigInteger, int> commentCounts = new Dictionary<BigInteger, int>();
     
     private Queue<GameObject> commentsInDetail = new Queue<GameObject>();
-
-
-    // TODO, only return past posts
+    
     private void Start()
     {
-        //LoadPosts();
-        //detailPage.SetActive(false);
-        //postVerticalHeight = postPrefab.transform.GetChild(0).GetComponent<RectTransform>().rect.height;
-        //foreach (var entry in commentCounts)
-        //{
-        //    UnityEngine.Debug.Log($"Post globalId: {entry.Key}, Comment count: {entry.Value}");
-        //}
     }
 
     public void InitializeBubbleApp()
     {
-        mainPage.SetActive(true);
         LoadPosts();
         detailPage.SetActive(false);
-        postVerticalHeight = postPrefab.transform.GetChild(0).GetComponent<RectTransform>().rect.height;
+        mainPage.SetActive(true);
+        postPrefab.SetActive(false);
         foreach (var entry in commentCounts)
         {
             Debug.Log($"Post globalId: {entry.Key}, Comment count: {entry.Value}");
         }
     }
 
-    public void LoadPosts()
+    private void LoadPosts()
     {
         postCount = 0;
         
@@ -74,24 +66,14 @@ public class BubbleAppManager : Singleton<BubbleAppManager>
             postObj.transform.GetChild(5).GetComponent<TextMeshProUGUI>().text = post.poster;
 
             postObj.GetComponent<PostObject>().ConstructPostData(post);
-                        
-            Vector2 positionTemp = postPrefab.transform.position;
-            postObj.transform.position = new Vector2(positionTemp.x + (horizontalOffset * (postCount % 3)/* * (Screen.currentResolution.width / 1920)*/),
-                                                        positionTemp.y - (verticalOffset * (postCount / 3)/* * (Screen.currentResolution.height / 1080)*/));
-            //Debug.Log(Screen.currentResolution);
+
             postObj.SetActive(true);
             
             postCount++;
         }
 
-        SetContentHeight();
     }
-
-    private void SetContentHeight()
-    {
-        Rect rectTemp = postContent.GetComponent<RectTransform>().rect;
-        rectTemp.height = postCount * (postVerticalHeight + (verticalOffset/* * Screen.currentResolution.height / 1080)*/) + pageHeightOffset);
-    }
+    
     
     private string FormatTime(string timestamp)
     {
@@ -105,8 +87,8 @@ public class BubbleAppManager : Singleton<BubbleAppManager>
         Transform postObjectTransform = detailContent.GetChild(0);
         postObjectTransform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = postData.poster;
         postObjectTransform.GetChild(0).GetChild(2).GetComponent<TextMeshProUGUI>().text = FormatTime(postData.time);
-        postObjectTransform.GetChild(0).GetChild(3).GetComponent<TextMeshProUGUI>().text = postData.content;
-        postObjectTransform.GetChild(0).GetChild(4).GetComponent<TextMeshProUGUI>().text = postData.title;
+        postObjectTransform.GetChild(0).GetChild(3).GetComponent<TextMeshProUGUI>().text = postData.title;
+        postObjectTransform.GetChild(0).GetChild(4).GetComponent<TextMeshProUGUI>().text = postData.content;
         postObjectTransform.GetChild(0).GetChild(5).GetComponent<TextMeshProUGUI>().text = commentCounts[postData.globalId] + "";
         
         ShowComments(postData);
@@ -125,18 +107,19 @@ public class BubbleAppManager : Singleton<BubbleAppManager>
             Destroy(comment);
         }
         commentsInDetail.Clear();
-        commentPrefab.SetActive(false);
     }
     
     private void ShowComments(PostData postData)
     {
         int count = 0;
             
-        RectTransform rectTransform = detailContent.GetComponent<RectTransform>();
-        rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x, commentCounts[postData.globalId] * ( commentPrefab.GetComponent<RectTransform>().rect.height) + detailPageHeightOffset);
+        // RectTransform rectTransform = detailContent.GetComponent<RectTransform>();
+        // rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x, commentCounts[postData.globalId] * ( commentPrefab.GetComponent<RectTransform>().rect.height) + detailPageHeightOffset);
 
         UnityEngine.Debug.Log($"Checking comments for post with globalId: {postData.globalId}");
 
+        commentPrefab.SetActive(true);
+        
         foreach (CommentData comment in JsonDataManager.Instance.bubbleAppData.comments)
         {
             UnityEngine.Debug.Log($"Comment globalId: {comment.globalId}");
@@ -148,7 +131,7 @@ public class BubbleAppManager : Singleton<BubbleAppManager>
             }
             UnityEngine.Debug.Log("Found matching comment!");
 
-            GameObject commentObj = Instantiate(commentPrefab, detailContent);
+            GameObject commentObj = Instantiate(commentPrefab, commentsParent);
             
             commentObj.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = comment.content;
             commentObj.transform.GetChild(0).GetChild(2).GetComponent<TextMeshProUGUI>().text = FormatTime(comment.time);
@@ -156,15 +139,16 @@ public class BubbleAppManager : Singleton<BubbleAppManager>
 
             commentObj.GetComponent<CommentObject>().ConstructCommentData(comment);
             
-            Vector2 positionTemp = commentObj.transform.position;
-            commentObj.transform.position = new Vector2( positionTemp.x, 
-                positionTemp.y - commentVerticalOffset * count);
+            // Vector2 positionTemp = commentObj.transform.position;
+            // commentObj.transform.position = new Vector2( positionTemp.x, 
+            //     positionTemp.y - commentVerticalOffset * count);
             
             commentObj.SetActive(true);
             commentsInDetail.Enqueue(commentObj);
             
             count++;
         }
+        commentPrefab.SetActive(false);
     }
     
     

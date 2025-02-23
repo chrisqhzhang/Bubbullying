@@ -1,18 +1,13 @@
-using System.IO;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
-using Vector3 = System.Numerics.Vector3;
 using System.Collections.Generic;
 using System.Numerics;
-using Vector2 = UnityEngine.Vector2;
-
-
+using UnityEngine.UI;
 
 public class BubbleAppManager : Singleton<BubbleAppManager>
 {
     public Transform postContent;
+    public Transform detailViewPort;
     public Transform detailContent;
     public Transform commentsParent;
     public GameObject postPrefab;
@@ -23,16 +18,18 @@ public class BubbleAppManager : Singleton<BubbleAppManager>
 
     [SerializeField] private GameObject detailPage;
     [SerializeField] private GameObject mainPage;
-    [SerializeField] private Transform commentContent;
     [SerializeField] private GameObject commentPrefab;
     [SerializeField] private float commentVerticalOffset;
+
+    [SerializeField] private Scrollbar scrollbar;
     
     private float postVerticalHeight;
     private int postCount;
 
     public Dictionary<BigInteger, int> commentCounts = new Dictionary<BigInteger, int>();
-    
     private Queue<GameObject> commentsInDetail = new Queue<GameObject>();
+    
+    private const double epson = 0.001;
     
     private void Start()
     {
@@ -85,11 +82,12 @@ public class BubbleAppManager : Singleton<BubbleAppManager>
     public void ShowDetail(PostData postData)
     {
         Transform postObjectTransform = detailContent.GetChild(0);
-        postObjectTransform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = postData.poster;
-        postObjectTransform.GetChild(0).GetChild(2).GetComponent<TextMeshProUGUI>().text = FormatTime(postData.time);
-        postObjectTransform.GetChild(0).GetChild(3).GetComponent<TextMeshProUGUI>().text = postData.title;
-        postObjectTransform.GetChild(0).GetChild(4).GetComponent<TextMeshProUGUI>().text = postData.content;
-        postObjectTransform.GetChild(0).GetChild(5).GetComponent<TextMeshProUGUI>().text = commentCounts[postData.globalId] + "";
+        postObjectTransform.GetChild(0).GetComponent<TextMeshProUGUI>().text = postData.poster;
+        postObjectTransform.GetChild(1).GetComponent<TextMeshProUGUI>().text = postData.title;
+        postObjectTransform.GetChild(2).GetComponent<TextMeshProUGUI>().text = postData.content;
+        
+        detailViewPort.GetChild(1).GetComponent<TextMeshProUGUI>().text = commentCounts[postData.globalId] + "";
+        detailViewPort.GetChild(2).GetComponent<TextMeshProUGUI>().text = FormatTime(postData.time);
         
         ShowComments(postData);
         UnityEngine.Debug.Log($"Showing details for post: {postData.title} (globalId: {postData.globalId})");
@@ -98,6 +96,7 @@ public class BubbleAppManager : Singleton<BubbleAppManager>
         
         mainPage.SetActive(false);
         detailPage.SetActive(true);
+        scrollbar.value = 1;
     }
 
     public void CleanComments()
@@ -112,10 +111,7 @@ public class BubbleAppManager : Singleton<BubbleAppManager>
     private void ShowComments(PostData postData)
     {
         int count = 0;
-            
-        // RectTransform rectTransform = detailContent.GetComponent<RectTransform>();
-        // rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x, commentCounts[postData.globalId] * ( commentPrefab.GetComponent<RectTransform>().rect.height) + detailPageHeightOffset);
-
+          
         UnityEngine.Debug.Log($"Checking comments for post with globalId: {postData.globalId}");
 
         commentPrefab.SetActive(true);
@@ -133,23 +129,33 @@ public class BubbleAppManager : Singleton<BubbleAppManager>
 
             GameObject commentObj = Instantiate(commentPrefab, commentsParent);
             
-            commentObj.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = comment.content;
-            commentObj.transform.GetChild(0).GetChild(2).GetComponent<TextMeshProUGUI>().text = FormatTime(comment.time);
-            commentObj.transform.GetChild(0).GetChild(3).GetComponent<TextMeshProUGUI>().text = comment.poster;
+            commentObj.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = comment.poster;
+            commentObj.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = FormatTime(comment.time);
+            commentObj.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = comment.content;
 
             commentObj.GetComponent<CommentObject>().ConstructCommentData(comment);
-            
-            // Vector2 positionTemp = commentObj.transform.position;
-            // commentObj.transform.position = new Vector2( positionTemp.x, 
-            //     positionTemp.y - commentVerticalOffset * count);
             
             commentObj.SetActive(true);
             commentsInDetail.Enqueue(commentObj);
             
             count++;
         }
+        
         commentPrefab.SetActive(false);
+        // VerticalLayoutController.Instance.SetVerticalLayout();
     }
-    
-    
+
+    public void HideTimeAndCommentCounts()
+    {
+        if (Mathf.Abs(scrollbar.value - 1f) > epson)
+        {
+            detailViewPort.GetChild(1).gameObject.SetActive(false);
+            detailViewPort.GetChild(2).gameObject.SetActive(false);
+        }
+        else
+        {
+            detailViewPort.GetChild(1).gameObject.SetActive(true);
+            detailViewPort.GetChild(2).gameObject.SetActive(true);
+        }
+    }
 }
